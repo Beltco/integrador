@@ -186,4 +186,19 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Pipe Drive API Access (NRG)
+    |--------------------------------------------------------------------------
+    |
+    | This keys are provided by Pipedrive to have access to the API
+    |
+    */
+    
+    'pd_client_id' => env('APP_PD_CLIENT_ID'),
+
+    'pd_client_id_secret' => env('APP_PD_CLIENT_SECRET'),
+
+    'pd_callback' => env('APP_PD_CALLBACK'),
+
 ];

@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/API/v2/callback', function () {
+    print_r($_REQUEST);
+});
+
 Route::get('/', function () {
     return view('welcome');
 });

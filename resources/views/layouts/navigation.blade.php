@@ -9,7 +9,9 @@
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
-
+<div>
+    <a href="https://oauth.pipedrive.com/oauth/authorize?client_id=99008a3d708fe1ff&redirect_uri=https%3A%2F%2Fintegrador.beltforge.com%2FAPI%2Fv2%2Fcallback">Pipedrive</a>
+</div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">

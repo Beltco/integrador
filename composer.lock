@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59265d02908c934150f1a3ea3ab2d6e4",
+    "content-hash": "8f99df0ea9fe74a1b7dd1194c6024c22",
     "packages": [
         {
             "name": "brick/math",
@@ -2468,6 +2468,60 @@
                 }
             ],
             "time": "2023-11-12T21:59:55+00:00"
+        },
+        {
+            "name": "pipedrive/pipedrive",
+            "version": "6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pipedrive/client-php.git",
+                "reference": "81ff6dcf09800ba1438a61cddfd9dd2ba7ab3957"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pipedrive/client-php/zipball/81ff6dcf09800ba1438a61cddfd9dd2ba7ab3957",
+                "reference": "81ff6dcf09800ba1438a61cddfd9dd2ba7ab3957",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "^7.3",
+                "guzzlehttp/psr7": "^2.0",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "pestphp/pest": "^1.23",
+                "phpstan/phpstan": "^1.10"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pipedrive\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Pipedrive REST client for PHP",
+            "homepage": "https://github.com/pipedrive/client-php",
+            "keywords": [
+                "contacts",
+                "crm",
+                "customers",
+                "deals",
+                "pipedrive",
+                "pipeline",
+                "sales",
+                "sales pipeline"
+            ],
+            "support": {
+                "issues": "https://github.com/pipedrive/client-php/issues",
+                "source": "https://github.com/pipedrive/client-php/tree/6.3.0"
+            },
+            "time": "2023-10-16T10:51:03+00:00"
         },
         {
             "name": "psr/clock",
