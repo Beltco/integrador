@@ -9,9 +9,6 @@
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
-<div>
-    <a href="https://oauth.pipedrive.com/oauth/authorize?client_id=99008a3d708fe1ff&redirect_uri=https%3A%2F%2Fintegrador.beltforge.com%2FAPI%2Fv2%2Fcallback">Pipedrive</a>
-</div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
@@ -20,8 +17,13 @@
                 </div>
             </div>
 
-            <!-- Settings Dropdown -->
+
+
+            <!-- Settings Dropdown --> 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <div align="right" class="right inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                    <a href="{{ route('oauth') }}"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjU2IDI1NiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8bWV0YWRhdGE+IFN2ZyBWZWN0b3IgSWNvbnMgOiBodHRwOi8vd3d3Lm9ubGluZXdlYmZvbnRzLmNvbS9pY29uIDwvbWV0YWRhdGE+DQo8Zz48Zz48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMjQyLjgsNzEuNmMtNC4zLTQuMy0xMS4zLTQuMy0xNS42LDBsLTQ5LjksNDkuOWwtNDMtNDNsNDkuOS00OS45YzQuMy00LjMsNC4zLTExLjMsMC0xNS42Yy00LjMtNC4zLTExLjMtNC4zLTE1LjYsMEwxMTguNiw2M0wxMDMsNDcuM2wwLDBsLTktOWMtMy42LTMuNi05LjQtMy42LTEzLDBjLTMuNiwzLjYtMy42LDkuNCwwLDEzbDIuNSwyLjVMNjYuNiw3MC43Yy0xNi44LDE2LjctMjYuNCwzOC42LTI3LjEsNjEuNmMtMC42LDE3LjUsNCwzNCwxMy4xLDQ3LjljLTAuMywwLjItMC41LDAuNC0wLjgsMC43bC0zNywzN2MtNi41LDYuNS02LjUsMTcsMCwyMy41YzMuMywzLjIsNy41LDQuOSwxMS43LDQuOWM0LjIsMCw4LjUtMS42LDExLjctNC45bDM3LTM3YzAuMy0wLjMsMC40LTAuNiwwLjctMC44YzEzLjEsOC42LDI4LjcsMTMuMiw0NS4xLDEzLjJsMCwwYzI0LDAsNDYuOS05LjYsNjQuNC0yNy4xbDE2LjktMTYuOWwxLjcsMS43YzEuOCwxLjgsNC4yLDIuNyw2LjUsMi43YzIuNCwwLDQuNy0wLjksNi41LTIuN2MzLjYtMy42LDMuNi05LjQsMC0xM2wtMjQuMi0yNC4ybDQ5LjktNDkuOUMyNDcuMSw4Mi45LDI0Ny4xLDc2LDI0Mi44LDcxLjZ6Ii8+PC9nPjwvZz4NCjwvc3ZnPg==" width="16" height="16"></a>
+                </div>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
@@ -77,6 +79,7 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
+                <div>xxxx</div>
                 <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
