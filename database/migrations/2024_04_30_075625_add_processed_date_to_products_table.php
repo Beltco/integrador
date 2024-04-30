@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('deals', function (Blueprint $table) {
-            $table->integer('products')->unsigned()->nullable();
+        Schema::table('products', function (Blueprint $table) {
+            $table->dateTime('processed')->nullable()->after('add_time');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('deals', function (Blueprint $table) {
-            $table->dropColumn('products');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('processed');
         });
     }
 };

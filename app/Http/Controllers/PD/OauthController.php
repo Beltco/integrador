@@ -21,6 +21,7 @@ class OauthController extends Controller
         $config->setClientId(config('app.pd_client_id'));
 
         header('Location: ' . filter_var($config->getAuthorizationPageUrl(), FILTER_SANITIZE_URL));
+        exit();
     }
 
     public function callback (){
@@ -47,10 +48,10 @@ class OauthController extends Controller
                 // resume user activity
                 $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/PD';
                 header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+                exit();
             } catch (Exception $ex) {
                 print_r($ex);
             }
         }
-
     }
 }

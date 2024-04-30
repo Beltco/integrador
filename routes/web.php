@@ -36,12 +36,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/PD', [FunctionsController::class,'writeProducts']);
-//Route::get('/PD', [FunctionsController::class,'loadDealsProductsPD']);
 Route::get('/PD/{id}', function ($id){
     $g=new FunctionsController;
     return  $g->loadDealsProducts($id);
 });
+
+//Route::get('/PD', [FunctionsController::class,'writeProducts']);
+//Route::get('/PD', [FunctionsController::class,'loadDealsProductsPD']);
+Route::get('/PD', [FunctionsController::class,'updateDuration']);
+
 
 Route::resource('PD/deal',DealController::class);
 

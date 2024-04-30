@@ -123,4 +123,22 @@ class FunctionsController extends Controller
 
     }
 
+    function updateDuration()
+    {
+        $table = new Product;
+
+        $products=Product::get()->where('duration','>',1);
+
+        foreach ($products as $product) {
+            echo("Product ID: ".$product->id);
+            echo(", Name: ".$product->name);
+            echo(", Price: ".$product->item_price);
+            echo(", Duration: ".$product->duration);
+            echo(", Quantity: ".$product->quantity);
+            echo(", Sum: ".$product->sum);
+            echo(", Created: ".$product->add_time."<br>");
+            
+        }
+    }
+
 }
