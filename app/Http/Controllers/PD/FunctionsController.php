@@ -106,15 +106,17 @@ class FunctionsController extends Controller
 
                     $new_Product->id=$product['id'];
                     $new_Product->deal_id=$deal->id;
+                    $new_Product->product_id=$product['product_id'];
                     $new_Product->name=$product['name'] ?? '(no name)';
                     $new_Product->item_price=$product['item_price'];
                     $new_Product->duration=$product['duration'];
                     $new_Product->quantity=$product['quantity'];
                     $new_Product->sum=$product['sum'];
+                    $new_Product->enabled_flag=$product['enabled_flag'];
                     $new_Product->add_time=$product['add_time'];
+                    $new_Product->processed=null;
 
                     $new_Product->save();   
-
                     unset($new_Product);
                 }
             }
@@ -125,19 +127,18 @@ class FunctionsController extends Controller
 
     function updateDuration()
     {
-        $table = new Product;
+        $methods = new MethodsController;
 
-        $products=Product::get()->where('duration','>',1);
+        $products=Product::get()->where('duration','>',1)->whereNull('processed')->where('deal_id','=',5172);
 
         foreach ($products as $product) {
-            echo("Product ID: ".$product->id);
-            echo(", Name: ".$product->name);
-            echo(", Price: ".$product->item_price);
-            echo(", Duration: ".$product->duration);
-            echo(", Quantity: ".$product->quantity);
-            echo(", Sum: ".$product->sum);
-            echo(", Created: ".$product->add_time."<br>");
-            
+            $result=$methods->updateDurationQuantity($product->deal_id,$product->id,$product->duration,$product->quantity,$product->enabled_flag);
+            Product::where('id','=',$product->id)->update(['processed'=>date('Y-m-d H:i:s')]);
+if ($result['success'])
+  echo " -CORRECTO- ";
+echo "<pre>";print_r($result);
+dd($result);
+exit;            
         }
     }
 

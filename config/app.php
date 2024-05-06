@@ -188,7 +188,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Pipe Drive API Access (NRG)
+    | Pipedrive API Access (NRG)
     |--------------------------------------------------------------------------
     |
     | This keys are provided by Pipedrive to have access to the API
@@ -196,9 +196,20 @@ return [
     */
     
     'pd_client_id' => env('APP_PD_CLIENT_ID'),
-
     'pd_client_id_secret' => env('APP_PD_CLIENT_SECRET'),
-
     'pd_callback' => env('APP_PD_CALLBACK'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Monday API Access (NRG)
+    |--------------------------------------------------------------------------
+    |
+    | This keys are provided by Pipedrive to have access to the API
+    |
+    */
+    
+    'md_token' => env('APP_MD_TOKEN'),
+    'md_apiurl' => env ('APP_MD_APIURL'),
+
 
 ];

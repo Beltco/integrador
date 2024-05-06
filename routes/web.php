@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\PD\DB\DealController;
-use App\Http\Controllers\PD\MethodsController;
-use App\Http\Controllers\PD\FunctionsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PD\OauthController;
@@ -37,13 +35,14 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/PD/{id}', function ($id){
-    $g=new FunctionsController;
+    $g=new App\Http\Controllers\PD\FunctionsController;
     return  $g->loadDealsProducts($id);
 });
 
-//Route::get('/PD', [FunctionsController::class,'writeProducts']);
-//Route::get('/PD', [FunctionsController::class,'loadDealsProductsPD']);
-Route::get('/PD', [FunctionsController::class,'updateDuration']);
+//Route::get('/PD', [App\Http\Controllers\PD\FunctionsController::class,'writeProducts']);
+//Route::get('/PD', [App\Http\Controllers\PD\FunctionsController::class,'loadDealsProductsPD']);
+//Route::get('/PD', [App\Http\Controllers\PD\FunctionsController::class,'updateDuration']);
+Route::get('/MD', [App\Http\Controllers\MD\FunctionsController::class,'getBoards']);
 
 
 Route::resource('PD/deal',DealController::class);

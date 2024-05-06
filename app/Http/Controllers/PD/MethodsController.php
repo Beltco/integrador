@@ -5,7 +5,9 @@ namespace App\Http\Controllers\PD;
 use Exception;
 use GuzzleHttp\Client;
 use Pipedrive\Api\DealsApi;
+use Pipedrive\Api\ProductsApi;
 use Pipedrive\Configuration;
+use Pipedrive\Model\UpdateDealProduct;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 
@@ -65,6 +67,24 @@ class MethodsController extends Controller
 
     }
 
+//  https://github.com/pipedrive/client-php/blob/master/docs/Api/ProductsApi.md#getProduct  
+    public function getProduct($id)
+    {
+        $apiInstance = new ProductsApi(
+            // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+            // This is optional, `GuzzleHttp\Client` will be used as default.
+            new Client(),
+            $this->config()
+        );
+
+        try {
+            $result = $apiInstance->getProduct($id);
+            return($result);
+        } catch (Exception $e) {
+            echo 'Exception when calling ProductsApi->getProduct: ', $e->getMessage(), PHP_EOL;
+        }
+    }
+
 //  https://github.com/pipedrive/client-php/blob/master/docs/Api/DealsApi.md#getdealproducts
     public function getDealProducts($id){
 
@@ -80,8 +100,32 @@ class MethodsController extends Controller
         }catch (Exception $e) {
             echo 'Exception when calling DealsApi->getDealProducts: ', $e->getMessage(), PHP_EOL;
         }
-
     }
+
+//  https://github.com/pipedrive/client-php/blob/master/docs/Api/DealsApi.md#updateDealProduct
+    public function updateDurationQuantity($deal_id,$id,$duration,$quantity,$enabled_flag)
+    {
+        $apiInstance = new DealsApi(
+            // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+            // This is optional, `GuzzleHttp\Client` will be used as default.
+            new Client(),
+            $this->config()
+        );
+        
+        $update_deal_product = new UpdateDealProduct();
+
+        $update_deal_product->setQuantity($duration*$quantity);
+        $update_deal_product->setDuration(1);
+        $update_deal_product->setEnabledFlag($enabled_flag);
+        
+        try {
+            $result = $apiInstance->updateDealProduct($deal_id, $id, $update_deal_product);
+            return($result);
+        } catch (Exception $e) {
+            echo 'Exception when calling DealsApi->updateDealProduct: ', $e->getMessage(), PHP_EOL;
+            exit();
+        }
+    }    
 
 } //class
 

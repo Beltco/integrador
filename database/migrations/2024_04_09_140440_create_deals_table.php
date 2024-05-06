@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("title",255);
             $table->integer("active");
             $table->string("status");
+            $table->integer('products')->nullable();
             $table->dateTime("add_Time");
             $table->timestamps();
         });

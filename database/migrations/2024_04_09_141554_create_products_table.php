@@ -15,12 +15,15 @@ return new class extends Migration
             $table->unsignedBigInteger('id');
             $table->primary('id');
             $table->foreignId("deal_id")->constrained();
+            $table->unsignedBigInteger("product_id")->nullable();
             $table->string("name",255);
             $table->double("item_price",12,2);
             $table->float("duration");
             $table->integer("quantity");
             $table->double("sum",12,2);
+            $table->boolean("enabled_flag");
             $table->dateTime("add_time");
+            $table->dateTime("processed")->nullable();
             $table->timestamps();
         });
     }
