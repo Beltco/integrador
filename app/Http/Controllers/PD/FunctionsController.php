@@ -10,8 +10,8 @@ use App\Models\Product;
 
 class FunctionsController extends Controller
 {
-// Load deals and its products from Pipedrive using API call    
-    function loadDealsProductsPD($id=false) {
+// List deals and its products from Pipedrive using API call    
+    function listDealsProducts($id=false) {
 
         $methods = new MethodsController;
         $start=0;
@@ -23,18 +23,22 @@ class FunctionsController extends Controller
                     $tmp[0]=$deals['data'];
                     $deals['data']=$tmp;
                 }
+                echo "deal_id|title|id_1|product_id|name|price|duration|quantity|sum\n";
                 foreach ($deals['data'] as $deal) {
                     echo $deal['id']."|".$deal['title'];
                     $products=$methods->getDealProducts($deal['id']);
                     if (isset($products['data']))
-                      foreach ($products['data'] as $product)
-                        echo("\n>> ".$product['id']."|".$product['name']."|".$product['item_price']."|".$product['duration']."|".$product['quantity']."|".$product['sum']);
+                      foreach ($products['data'] as $product){
+                        echo("|".$product['id']."|".$product['product_id']."|".$product['name']."|".$product['item_price']."|".$product['duration']."|".$product['quantity']."|".$product['sum']);
+//                        dd($product);exit;
+                      }
                     echo "\n";
                 }  
             }
-            $start+=$limit;
+            $start+=$limit;      
         }while (isset($deals['data'])&&!$id);
     }
+
 
 // Write Deals into Integrator's database    
     function writeDeals($reset=false)
@@ -86,15 +90,13 @@ class FunctionsController extends Controller
     {
         $methods = new MethodsController;
         $table = new Deal;
-
         if ($reset){
             Product::query()->delete();
-            $table->update(['products'=>null]);
+            Deal::query()->update(['products'=>null]);
         }
         
-        $deals=$table->query()->whereNull('products')->get();
-//echo "<pre>";
-//print_r($deals);
+        $deals=Deal::whereNull('products')->get();
+
         foreach ($deals as $deal) {
             $total_products=0;
             $products=$methods->getDealProducts($deal->id);
@@ -125,20 +127,18 @@ class FunctionsController extends Controller
 
     }
 
-    function updateDuration()
+    function updateDuration($id=false)
     {
         $methods = new MethodsController;
 
-        $products=Product::get()->where('duration','>',1)->whereNull('processed')->where('deal_id','=',5172);
+        if ($id)
+            $products=Product::get()->where('duration','>',1)->whereNull('processed')->where('deal_id','=',$id);
+        else
+            $products=Product::get()->where('duration','>',1)->whereNull('processed');
 
         foreach ($products as $product) {
             $result=$methods->updateDurationQuantity($product->deal_id,$product->id,$product->duration,$product->quantity,$product->enabled_flag);
             Product::where('id','=',$product->id)->update(['processed'=>date('Y-m-d H:i:s')]);
-if ($result['success'])
-  echo " -CORRECTO- ";
-echo "<pre>";print_r($result);
-dd($result);
-exit;            
         }
     }
 

@@ -4,6 +4,8 @@ use App\Http\Controllers\PD\DB\DealController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PD\OauthController;
+use App\Models\Deal;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,16 +36,38 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/PD/{id}', function ($id){
+Route::get('/PD/deal/{id}', function ($id){
     $g=new App\Http\Controllers\PD\FunctionsController;
-    return  $g->loadDealsProducts($id);
+    return  $g->listDealsProducts($id);
 });
 
-//Route::get('/PD', [App\Http\Controllers\PD\FunctionsController::class,'writeProducts']);
-//Route::get('/PD', [App\Http\Controllers\PD\FunctionsController::class,'loadDealsProductsPD']);
+Route::get('/PD/loadProducts', [App\Http\Controllers\PD\FunctionsController::class,'writeProducts']);
+Route::get('/PD/listProducts', [App\Http\Controllers\PD\FunctionsController::class,'listDealsProducts']);
 //Route::get('/PD', [App\Http\Controllers\PD\FunctionsController::class,'updateDuration']);
-Route::get('/MD', [App\Http\Controllers\MD\FunctionsController::class,'getBoards']);
+//Route::get('/MD', [App\Http\Controllers\MD\FunctionsController::class,'getBoards']);
 
+Route::get('/PD/updateQuantity', function () {
+
+    $deals=Deal::select('deals.id as id','deals.title as title',DB::raw('count(products.id) as products'))
+            ->join('products','products.deal_id','=','deals.id')
+            ->whereNull('products.processed')
+            ->where('products.duration','>',1)
+            ->groupBy('deals.id','deals.title')
+            ->get()->toArray();
+
+    return view('listDuration')->with('deals',$deals);
+})->name('updateQuantity');
+
+Route::get('/PD/updateQuantity/deal/{id}', function ($id) {
+    $d=new App\Http\Controllers\PD\FunctionsController;
+    $d->updateDuration($id);
+
+    return redirect()->route('updateQuantity');
+})->name('updateDeal');
+
+Route::get('/PD/options', function () {
+    return view('options');
+})->middleware(['auth', 'verified']);
 
 Route::resource('PD/deal',DealController::class);
 

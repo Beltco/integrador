@@ -47,7 +47,6 @@ class MethodsController extends Controller
     }
 
 
-
 //  https://github.com/pipedrive/client-php/blob/master/docs/Api/DealsApi.md#getDeals
     public function getDeals ($id=false,$start=200,$limit=200) {
 
@@ -64,11 +63,10 @@ class MethodsController extends Controller
         } catch (Exception $e) {
             echo 'Exception when calling DealsApi->getDeals: ', $e->getMessage(), PHP_EOL;
         }
-
     }
 
 //  https://github.com/pipedrive/client-php/blob/master/docs/Api/ProductsApi.md#getProduct  
-    public function getProduct($id)
+    public function getProducts($id=false,$start=200,$limit=200)
     {
         $apiInstance = new ProductsApi(
             // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -78,8 +76,11 @@ class MethodsController extends Controller
         );
 
         try {
-            $result = $apiInstance->getProduct($id);
-            return($result);
+            if ($id)
+                return($apiInstance->getProduct($id));
+            else
+                return($apiInstance->getProducts(null,null,null,null,false,$start,$limit));
+
         } catch (Exception $e) {
             echo 'Exception when calling ProductsApi->getProduct: ', $e->getMessage(), PHP_EOL;
         }
