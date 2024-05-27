@@ -134,7 +134,7 @@ class FunctionsController extends Controller
         if ($id)
             $products=Product::get()->where('duration','>',1)->whereNull('processed')->where('deal_id','=',$id);
         else
-            $products=Product::get()->where('duration','>',1)->whereNull('processed');
+            $products=Product::orderBy('deal_id','ASC')->get()->where('duration','>',1)->whereNull('processed');
 
         foreach ($products as $product) {
             $result=$methods->updateDurationQuantity($product->deal_id,$product->id,$product->duration,$product->quantity,$product->enabled_flag);

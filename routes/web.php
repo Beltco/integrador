@@ -41,10 +41,12 @@ Route::get('/PD/deal/{id}', function ($id){
     return  $g->listDealsProducts($id);
 });
 
+Route::get('/PD/loadDeals', [App\Http\Controllers\PD\FunctionsController::class,'writeDeals']);
 Route::get('/PD/loadProducts', [App\Http\Controllers\PD\FunctionsController::class,'writeProducts']);
 Route::get('/PD/listProducts', [App\Http\Controllers\PD\FunctionsController::class,'listDealsProducts']);
 //Route::get('/PD', [App\Http\Controllers\PD\FunctionsController::class,'updateDuration']);
-//Route::get('/MD', [App\Http\Controllers\MD\FunctionsController::class,'getBoards']);
+
+Route::get('/MD', [App\Http\Controllers\MD\FunctionsController::class,'getBoardColumns']);
 
 Route::get('/PD/updateQuantity', function () {
 

@@ -10,12 +10,18 @@ class MethodsController extends Controller
     private $token;
     private $apiUrl;
     private $headers;
+    private $boardMateriales;
 
     function __construct()
     {
         $this->token = config('app.md_token');
         $this->apiUrl = config('app.md_apiurl');
         $this->headers = ['Content-Type: application/json', 'Authorization: ' . $this->token];
+        $this->boardMateriales = 4237501741;
+    }
+
+    public function boardMateriales(){
+        return $this->boardMateriales;
     }
 
     public function apiCallMD($query)
@@ -31,6 +37,5 @@ class MethodsController extends Controller
            
            return json_encode($responseContent);
     }
-
 
 }

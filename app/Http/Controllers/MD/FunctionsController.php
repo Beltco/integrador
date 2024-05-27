@@ -8,10 +8,16 @@ use App\Http\Controllers\MD\MethodsController;
 
 class FunctionsController extends Controller
 {
-    public function getBoards()
+    public function getBoardColumns($id=false)
     {
         $monday=New MethodsController();
+        if (!$id)
+            $boardCode=$monday->boardMateriales();
 
-        print_r(json_decode($monday->apiCallMD('{ boards { id name } }')));
+        $query="{boards (ids: $boardCode){columns{id title type}}}";
+        $json=json_decode($monday->apiCallMD($query));
+        $columns=$json->data->boards[0];
+        
+        return $columns;
     }
 }
