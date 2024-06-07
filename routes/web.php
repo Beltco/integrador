@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\PD\DB\DealController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use App\Models\Deal;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PD\OauthController;
-use App\Models\Deal;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PD\DB\DealController;
+use App\Http\Controllers\PD;
+use App\Http\Controllers\MD;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,12 +43,15 @@ Route::get('/PD/deal/{id}', function ($id){
     return  $g->listDealsProducts($id);
 });
 
-Route::get('/PD/loadDeals', [App\Http\Controllers\PD\FunctionsController::class,'writeDeals']);
+Route::get('/PD/loadDeals', [PD\FunctionsController::class,'writeDeals']);
 Route::get('/PD/loadProducts', [App\Http\Controllers\PD\FunctionsController::class,'writeProducts']);
 Route::get('/PD/listProducts', [App\Http\Controllers\PD\FunctionsController::class,'listDealsProducts']);
 //Route::get('/PD', [App\Http\Controllers\PD\FunctionsController::class,'updateDuration']);
 
-Route::get('/MD', [App\Http\Controllers\MD\FunctionsController::class,'getBoardColumns']);
+Route::get('/MD/materials', function(){
+    $m=new MD\FunctionsController;
+    $m->getMaterials(true);
+}); 
 
 Route::get('/PD/updateQuantity', function () {
 
@@ -61,7 +66,7 @@ Route::get('/PD/updateQuantity', function () {
 })->name('updateQuantity');
 
 Route::get('/PD/updateQuantity/deal/{id}', function ($id) {
-    $d=new App\Http\Controllers\PD\FunctionsController;
+    $d=new PD\FunctionsController;
     $d->updateDuration($id);
 
     return redirect()->route('updateQuantity');
