@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('boards', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->primary('id');
-            $table->string('name',255);
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+            $table->dateTime('processed')->nullable()->after('add_time');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('boards');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('processed');
+        });
     }
 };

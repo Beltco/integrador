@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('boards', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->primary('id');
-            $table->string('name',255);
+        Schema::create('board_values', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('boards');
+        Schema::dropIfExists('board_values');
     }
 };

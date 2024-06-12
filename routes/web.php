@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
 use App\Models\Deal;
+use App\Http\Controllers\MD;
+use App\Http\Controllers\PD;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PD\OauthController;
 use App\Http\Controllers\PD\DB\DealController;
-use App\Http\Controllers\PD;
-use App\Http\Controllers\MD;
 
 /*
 |--------------------------------------------------------------------------
