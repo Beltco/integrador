@@ -65,6 +65,16 @@ class FunctionsController extends Controller
         return ('{"assetIds":'.$assetIds.'}');
     }
 
+    function status($value,$settings)
+    {
+        if (strlen(trim($value))==0)
+          return "";
+
+        $index=json_decode($value)->index;
+        return json_decode($settings)->labels->$index;
+  
+    }
+
     function insertBoardItems($items,$boardId,$reset=false)
     {
         
@@ -72,7 +82,6 @@ class FunctionsController extends Controller
 
         if ($reset){
             BoardValue::query()->delete();
-            BoardColumn::query()->delete();
             Column::query()->delete();
             Board::query()->delete();
 
@@ -85,42 +94,47 @@ class FunctionsController extends Controller
                 $order++;
             } 
         }
-
+        $records=0;
         foreach ($items as $item) 
         {
+            $records++;
             $this->insert(New BoardValue,array('board_id'=>$boardId,'column_id'=>'name','record_id'=>$item->id,'value'=>$item->name));
             foreach ($item->column_values as $value) {
                 if (strcmp($value->type,"file")==0)
                     $data=$this->jsonFiles($value->value);
+                elseif (strcmp($value->type,"status")==0)
+                    $data=$this->status($value->value,$value->column->settings_str);
                 else
-                    $data=$value->value;
+                    $data=trim($value->value,'"');
                 $this->insert(New BoardValue,array('board_id'=>$boardId,'column_id'=>$value->id,'record_id'=>$item->id,'value'=>$data));
             }
         }
 
+        return $records;
     }
 
     function getBoardItems($boardId,$refresh)
     {
         $monday=New MethodsController();
         $limit=200;
-
-        $query="{boards (ids: $boardId){items_page (limit:$limit){cursor items{id name column_values {id value type} }}}}";
+        $query="{boards (ids: $boardId){items_page (limit:$limit){cursor items{id name column_values {id value type column {settings_str}}}}}}";
         $json=json_decode($monday->apiCallMD($query))->data->boards[0]->items_page;
         $cursor=$json->cursor;
-        $this->insertBoardItems($json->items,$boardId,$refresh);
+        $records=$this->insertBoardItems($json->items,$boardId,$refresh);
 
         while ($cursor)
         {
-            $query="{next_items_page (limit:$limit,cursor:".'"'.$cursor.'"'."){cursor items{id name column_values {id value type} }}}";
+            $query="{next_items_page (limit:$limit,cursor:".'"'.$cursor.'"'."){cursor items{id name column_values {id value type column {settings_str}}}}}";
 
             $json=json_decode($monday->apiCallMD($query))->data->next_items_page;
             $cursor=$json->cursor;
-            $this->insertBoardItems($json->items,$boardId);
+            $records+=$this->insertBoardItems($json->items,$boardId);
         }
+
+        echo "Total: $records";
     }
 
-    function getMaterials($refresh=false)
+    function writeMaterials($refresh=false)
     {
         $monday=New MethodsController();
         if ($refresh)

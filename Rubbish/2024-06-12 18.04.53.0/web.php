@@ -2,7 +2,6 @@
 
 use App\Models\Deal;
 use App\Http\Controllers\MD;
-use App\Http\Controllers\MD\ItemController;
 use App\Http\Controllers\PD;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -21,14 +20,9 @@ use App\Http\Controllers\PD\DB\DealController;
 |
 */
 
-// Materioteca group
-Route::group(['prefix'=>'materioteca'],function(){
-    Route::controller(ItemController::class)->group(function(){
-        Route::get('/',"index");
-        Route::get('/{id}','item');
-    });
+Route::get('/materioteca',function(){
+  return view('materioteca.index');
 });
-
 
 Route::get('/PD/callback', [OauthController::class,'callback']);
 
