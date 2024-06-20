@@ -1,7 +1,22 @@
-import './bootstrap';
+let currentSlide = 0;
 
-import Alpine from 'alpinejs';
+function showSlides(n) {
+    let slides = document.getElementsByClassName("carousel-item");
+    if (n >= slides.length) {
+        currentSlide = 0;
+    }
+    if (n < 0) {
+        currentSlide = slides.length - 1;
+    }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[currentSlide].style.display = "block";
+}
 
-window.Alpine = Alpine;
+function plusSlides(n) {
+    showSlides(currentSlide += n);
+}
 
-Alpine.start();
+// Initialize the first slide
+showSlides(currentSlide);

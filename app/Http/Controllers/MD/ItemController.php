@@ -13,12 +13,31 @@ class ItemController extends Controller
      */
     public function item($id)
     {
-        $recordId=(BoardValue::get()->where('column_id','n_meros__1')->where('value',$id))->first()->record_id;
+        try {
+            $recordId=(BoardValue::get()->where('column_id','n_meros__1')->where('value',$id))->first()->record_id;
+        } catch (\Exception $e) {
+            return(view('MT.index',array('error'=>true)));
+        }
 
-        $cols=BoardValue::join('columns','column_id','=','columns.id')->select('columns.order','columns.title','board_values.value')->where('record_id',$recordId)->orderBy('columns.order')->get();
+        $cols=BoardValue::join('columns','column_id','=','columns.id')->select('columns.order','columns.title','board_values.value','columns.id as col_id')->where('record_id',$recordId)->orderBy('columns.order')->get();
 
-        foreach ($cols as $col)
-          $data[$col->title]=$col->value; 
+        foreach ($cols as $col){
+            if (strcmp($col->col_id,'archivo9')==0){
+                $imgs=json_decode($col->value);
+                if (count($imgs->assetIds)>0)
+                    foreach ($imgs->assetIds as $img) {
+                        $url=FunctionsController::getImageUrl($img);
+                        if($url)
+                            $urls[]=$url;
+                    }
+                else
+                    $urls[]=asset('/images/noimage.jpg');
+                $data[$col->col_id]=array('title'=>$col->title,'value'=>$urls);             
+            }
+            else
+                $data[$col->col_id]=array('order'=>$col->order,'title'=>ucwords(strtolower($col->title)),'value'=>$col->value);             
+        }
+
         return (view('MT.item',compact('data')));
     }
 

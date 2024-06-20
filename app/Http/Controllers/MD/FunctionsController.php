@@ -25,12 +25,18 @@ class FunctionsController extends Controller
         return(compact('name','columns'));     
     }
 
-    function getImageUrl($assetId)
+    public static function getImageUrl($assetId)
     {
         $monday=New MethodsController();
 
-        $query="{assets (ids:$assetId){public_url}}";
-        return (json_decode($monday->apiCallMD($query))->data->assets[0]->public_url);
+        $query="{assets (ids:$assetId){name public_url}}";
+        $img=(json_decode($monday->apiCallMD($query)))->data->assets[0];
+        $ar=explode(".",$img->name);
+        $ext=strtolower($ar[count($ar)-1]);
+        if (strcmp(strtolower($ext),'png')==0||strcmp(strtolower($ext),'jpg')==0)
+            return $img->public_url;
+        else
+            return false;
     }
 
     function insert($table,$data)

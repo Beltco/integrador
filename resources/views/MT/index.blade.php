@@ -12,6 +12,12 @@
   img{
     float:left;
   }
+  .error{
+    margin-top: 5px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+  }
   @media only screen and (max-width: 500px) {
     .box, img {
         float:unset ;
@@ -32,7 +38,7 @@
         return false;
       }
       else
-        window.location.href='materioteca/'+code;
+        window.location.href='<?= URL::to('/') ?>'+'/materioteca/'+code;
     }
   </script>
 </x-MT.head>
@@ -43,7 +49,12 @@
     <div class="box">
         {{ __('Enter the Item Code') }}<br>
         <input type="number" id="code" style="margin-bottom:10px"/><br>
-        <x-primary-button id="send" type="button" onclick="callURL()">{{__('Search')}}</x-primary-button>
+        <x-primary-button id="send" type="button" onclick="callURL()">{{__('Search')}}</x-primary-button><br>
+        @if (isset($error))
+          @if ($error)
+            <p class="error">{{__('Error! Code not found')}}</p>
+          @endif
+        @endif
     </div>
   </div>
 </x-MT.body>

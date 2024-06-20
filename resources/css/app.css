@@ -1,3 +1,63 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carousel {
+    position: relative;
+    margin: 0 -15px;
+    overflow: hidden;
+    background-color: white;
+    padding: 10px 0;
+}
+
+.carousel a {
+    text-decoration: none;
+    color:white;
+    text-shadow: 0 0 3px black;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    height: 300px;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+@media only screen and (max-width: 500px) {
+    .carousel-item img {
+        height: 200px;
+        vertical-align: middle;
+        margin: 0 auto;
+    }
+  }
+
