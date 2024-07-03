@@ -26,9 +26,9 @@ Route::group(['prefix'=>'materioteca'],function(){
     Route::controller(ItemController::class)->group(function(){
         Route::get('/',"index");
         Route::get('/{id}','item');
+        Route::get('/admin/update', 'refreshMaterials');
     });
 });
-
 
 Route::get('/PD/callback', [OauthController::class,'callback']);
 
@@ -57,11 +57,6 @@ Route::get('/PD/loadDeals', [PD\FunctionsController::class,'writeDeals']);
 Route::get('/PD/loadProducts', [App\Http\Controllers\PD\FunctionsController::class,'writeProducts']);
 Route::get('/PD/listProducts', [App\Http\Controllers\PD\FunctionsController::class,'listDealsProducts']);
 //Route::get('/PD', [App\Http\Controllers\PD\FunctionsController::class,'updateDuration']);
-
-Route::get('/MD/materials', function(){
-    $m=new MD\FunctionsController;
-    $m->writeMaterials(true);
-}); 
 
 Route::get('/PD/updateQuantity', function () {
 

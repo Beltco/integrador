@@ -33,10 +33,9 @@ class FunctionsController extends Controller
         $img=(json_decode($monday->apiCallMD($query)))->data->assets[0];
         $ar=explode(".",$img->name);
         $ext=strtolower($ar[count($ar)-1]);
-        if (strcmp(strtolower($ext),'png')==0||strcmp(strtolower($ext),'jpg')==0)
-            return $img->public_url;
-        else
-            return false;
+        $type=(strcmp(strtolower($ext),'png')==0||strcmp(strtolower($ext),'jpg')==0);
+        
+        return array('type'=>$type,'url'=>$img->public_url);
     }
 
     function insert($table,$data)
@@ -122,6 +121,7 @@ class FunctionsController extends Controller
     function getBoardItems($boardId,$refresh)
     {
         $monday=New MethodsController();
+
         $limit=200;
         $query="{boards (ids: $boardId){items_page (limit:$limit){cursor items{id name column_values {id value type column {settings_str}}}}}}";
         $json=json_decode($monday->apiCallMD($query))->data->boards[0]->items_page;
@@ -137,13 +137,13 @@ class FunctionsController extends Controller
             $records+=$this->insertBoardItems($json->items,$boardId);
         }
 
-        echo "Total: $records";
+        return $records;
     }
 
-    function writeMaterials($refresh=false)
+    public function writeMaterials($refresh=false)
     {
-        $monday=New MethodsController();
-        if ($refresh)
-            $this->getBoardItems($monday->boardMateriales(),$refresh);
+        $md=New MethodsController();
+
+        return $this->getBoardItems($md->boardMateriales(),$refresh);
     }
 }

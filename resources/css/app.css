@@ -1,5 +1,28 @@
+@font-face {
+    font-family: 'AvenirNextLTPro';
+    src: url('fonts/AvenirNextLTPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: 'AvenirNextLTPro';
+    src: url('fonts/AvenirNextLTPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}  
+
+@font-face {
+    font-family: 'AvenirNextLTPro';
+    src: url('fonts/AvenirNextLTPro-UltLt.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+}  
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif !important;
+    font-weight: normal;
+    color: black;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,10 +30,8 @@ body {
 
 .carousel {
     position: relative;
-    margin: 0 -15px;
+    margin: 0 -5px;
     overflow: hidden;
-    background-color: white;
-    padding: 10px 0;
 }
 
 .carousel a {
@@ -53,6 +74,17 @@ body {
 .next {
     right: 0;
 }
+
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+
+
 @media only screen and (max-width: 500px) {
     .carousel-item img {
         height: 200px;

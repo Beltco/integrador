@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ItemController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a single item.
      */
     public function item($id)
     {
@@ -26,23 +26,41 @@ class ItemController extends Controller
                 $imgs=json_decode($col->value);
                 if (count($imgs->assetIds)>0)
                     foreach ($imgs->assetIds as $img) {
-                        $url=FunctionsController::getImageUrl($img);
-                        if($url)
-                            $urls[]=$url;
+                        $file=FunctionsController::getImageUrl($img);
+                        if ($file['type'])
+                            $pics[]=$file['url'];
+                        else
+                            $pdfs[]=$file['url'];
                     }
                 else
                     $urls[]=asset('/images/noimage.jpg');
-                $data[$col->col_id]=array('title'=>$col->title,'value'=>$urls);             
+                $data[$col->col_id]=array('title'=>$col->title,'value'=>$pics);  
+                if (!isset($pdfs))
+                  $pdfs=[];
+                $data['pdf_files']=array('title'=>'FICHA TÉCNICA','value'=>$pdfs);
             }
             else
-                $data[$col->col_id]=array('order'=>$col->order,'title'=>ucwords(strtolower($col->title)),'value'=>$col->value);             
+                $data[$col->col_id]=array('order'=>$col->order,'title'=>$col->title,'value'=>$col->value);             
         }
 
         return (view('MT.item',compact('data')));
     }
 
     /**
-     * Display a listing of the resource.
+     * Ask for a item code.
+     */
+    function refreshMaterials()
+    {
+        $monday=New FunctionsController();
+
+        $records=$monday->writeMaterials(true);
+
+        echo "Registros:$records";
+    }
+
+
+    /**
+     * Ask for a item code.
      */
     public function index()
     {
