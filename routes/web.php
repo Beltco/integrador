@@ -1,8 +1,9 @@
 <?php
 
-use App\Models\Deal;
+use App\Models\PD\Deal;
 use App\Http\Controllers\MD;
-use App\Http\Controllers\MD\ItemController;
+use App\Http\Controllers\MD\FunctionsController;
+use App\Http\Controllers\MD\ItemControllerMTK;
 use App\Http\Controllers\PD;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -23,12 +24,23 @@ use App\Http\Controllers\PD\DB\DealController;
 
 // Materioteca group
 Route::group(['prefix'=>'materioteca'],function(){
-    Route::controller(ItemController::class)->group(function(){
+    Route::controller(ItemControllerMTK::class)->group(function(){
         Route::get('/',"index");
         Route::get('/{id}','item');
-        Route::get('/admin/update', 'refreshMaterials');
+        Route::get('/admin/update', 'refreshMaterials');        
     });
 });
+
+// Monday group
+Route::group(['prefix'=>'md'],function(){
+    Route::controller(FunctionsController::class)->group(function(){
+        Route::get('/test',"writeMaterials");
+    });
+});
+
+
+
+
 
 Route::get('/PD/callback', [OauthController::class,'callback']);
 

@@ -6,20 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Models\MD\BoardValue;
 use Illuminate\Http\Request;
 
-class ItemController extends Controller
+class ItemControllerMTK extends Controller
 {
     /**
      * Display a single item.
      */
-    public function item($id)
+    public function item($recordId)
     {
+        /*
         try {
             $recordId=(BoardValue::get()->where('column_id','n_meros__1')->where('value',$id))->first()->record_id;
         } catch (\Exception $e) {
             return(view('MT.index',array('error'=>true)));
         }
-
+        */
         $cols=BoardValue::join('columns','column_id','=','columns.id')->select('columns.order','columns.title','board_values.value','columns.id as col_id')->where('record_id',$recordId)->orderBy('columns.order')->get();
+
+        if (count($cols)==0)
+            return(view('MT.index',array('error'=>true)));
 
         foreach ($cols as $col){
             if (strcmp($col->col_id,'archivo9')==0){
@@ -51,7 +55,7 @@ class ItemController extends Controller
      */
     function refreshMaterials()
     {
-        $monday=New FunctionsController();
+        $monday=New FunctionsControllerMTK();
 
         $records=$monday->writeMaterials(true);
 

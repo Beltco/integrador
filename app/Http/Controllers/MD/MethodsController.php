@@ -34,7 +34,7 @@ class MethodsController extends Controller
             ]
            ]));
            $responseContent = json_decode($data, true);
-           
+
            return json_encode($responseContent);
     }
 
