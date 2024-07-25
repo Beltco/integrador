@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\MD;
 
-use App\Models\MD\Column;
-use App\Models\MD\Board;
-use App\Models\MD\BoardValue;
-use App\Models\MD\BoardColumn;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MD\MethodsController;
+use App\Models\MD\Column;
+use stdClass;
 
 class FunctionsController extends Controller
 {
@@ -79,7 +76,201 @@ class FunctionsController extends Controller
 
         $index=json_decode($value)->index;
         return json_decode($settings)->labels->$index;
-
     }
 
+    function splitUpdate($updates)
+    {
+        return $updates;
+    }
+
+    function splitItem($fields)
+    {
+        switch ($fields['type']) {
+            case 'link':
+                $detail=json_decode($fields['detail']['value'],true);
+                $fields['detail']=$detail;
+                break;
+            case 'people':
+                $fields['detail']=explode(',',$fields['value']);
+                break;     
+            case 'status':
+                $value=json_decode($fields['detail']['value'],true);
+                if (!isset($value['index']))
+                  $value['index']=5;
+                $detail=json_decode($fields['detail']['settings_str'],true);
+                foreach($detail['labels_positions_v2'] as $index=>$i)
+                    $options[$i]=array('label'=>$detail['labels'][$index],'color'=>$detail['labels_colors'][$index]['color']);
+                ksort($options);
+                $fields['detail']=array('selected'=>$value['index'],'options'=>$options);
+            break;
+            case 'formula';
+                $detail=json_decode($fields['detail']['settings_str'],true);
+                $fields['detail']=$detail['formula'];
+
+            break;
+        } 
+
+        return $fields;
+    }
+
+    function subItems($itemId)
+    {
+        $md=New MethodsController();
+
+        $subItems=array();
+
+        $query="query{
+          items (ids: $itemId) {
+            subitems {
+                          id 
+                          name 
+                          column_values 
+                          {
+                            id 
+                            text
+                            value 
+                            type 
+                            column 
+                            {
+                              title
+                              settings_str
+                            }
+                          }
+                          updates{body id creator {name id}}  
+            }
+          }
+        }";
+        $items=json_decode($md->apiCallMD($query))->data->items[0]->subitems;
+        foreach ($items as $item) {
+                $fields=$this->splitItem(['name'=>'Elemento','value'=>$item->name,'detail'=>$item->name,'type'=>'text']);
+                $subItems[$item->id]['elemento']=$fields;
+                foreach ($item->column_values as $column) {
+                    $fields=$this->splitItem(['name'=>$column->column->title,'value'=>$column->text,'detail'=>array('value'=>$column->value,'settings_str'=>$column->column->settings_str),'type'=>$column->type]);
+                    $subItems[$item->id][$column->id]=$fields;
+                } // foreach $item->column_values
+                foreach($item->updates as $update)
+                {
+                    $updates=$this->splitUpdate(['body'=>$update->body,'creator'=>$update->creator->name]);
+                    $subItems[$item->id]['updates'][$update->id]=$updates;
+                } // foreach $item->updates
+            } // foreach $items
+        return $subItems;
+    }
+
+    function getBoardAllInfo($boardId) 
+    {
+        $monday=New MethodsController();
+        $limit=200;
+
+        $query="
+        {
+          boards(ids: $boardId) 
+          {
+            name
+            groups 
+            {
+              id
+              title
+            }
+          }
+        }";
+        $json=json_decode($monday->apiCallMD($query));
+        $board['name']=$json->data->boards[0]->name;
+        $groups=$json->data->boards[0]->groups;
+
+        foreach ($groups as $group) {
+            $board['groups'][$group->id]['title']=$group->title;
+
+            $cursor=false;
+            do{
+                if ($cursor){
+                    $query="
+                    {
+                      next_items_page (limit:$limit,cursor:".'"'.$cursor.'"'.")
+                      {
+                        cursor 
+                        items
+                        {
+                          id 
+                          name 
+                          column_values 
+                          {
+                            id 
+                            text
+                            value 
+                            type 
+                            column 
+                            {
+                              title
+                              settings_str
+                            }
+                          }
+                          updates{body id creator {name id}}  
+                        }
+                      }
+                    }";
+                    $items_page=json_decode($monday->apiCallMD($query))->data->next_items_page ;
+                }
+                else{
+                    $query="
+                    {
+                      boards (ids: $boardId)
+                      {
+                        groups (ids:".'"'.$group->id.'"'.")
+                        {
+                          id 
+                          title 
+                          items_page (limit:$limit)
+                          {
+                            cursor 
+                            items
+                            {
+                              id 
+                              name 
+                              column_values 
+                              {
+                                id 
+                                text
+                                value 
+                                type 
+                                column 
+                                {
+                                  title
+                                  settings_str
+                                }
+                              }
+                              updates{body id creator {name id}}  
+                            }
+                          }
+                        }
+                      }
+                      complexity { before after}
+                    }";  
+                    $items_page=json_decode($monday->apiCallMD($query))->data->boards[0]->groups[0]->items_page;
+                    foreach ($items_page->items as $item) {
+                        $fields=$this->splitItem(['name'=>'Elemento','value'=>$item->name,'detail'=>$item->name,'type'=>'text']);
+                        $board['groups'][$group->id]['items'][$item->id]['elemento']=$fields;
+                        foreach ($item->column_values as $column) {
+                            if (strcmp($column->type,"subtasks")!=0)
+                            {
+                                $fields=$this->splitItem(['name'=>$column->column->title,'value'=>$column->text,'detail'=>array('value'=>$column->value,'settings_str'=>$column->column->settings_str),'type'=>$column->type]);
+                                $board['groups'][$group->id]['items'][$item->id][$column->id]=$fields;
+                            }
+                            else
+                            {
+                              $board['groups'][$group->id]['items'][$item->id]['subitems']=$this->subItems($item->id);
+                            }
+                        } // foreach $item->column_values
+                        foreach($item->updates as $update)
+                        {
+                            $updates=$this->splitUpdate(['body'=>$update->body,'creator'=>$update->creator->name]);
+                            $board['groups'][$group->id]['items'][$item->id]['updates'][$update->id]=$updates;
+                        } // foreach $item->updates
+                    } // foreach $items_page->items
+                }
+                $cursor=$items_page->cursor;
+            }while ($cursor);
+        } //foreach $groups
+        return $board;
+    } // Function getBoardAllInfo
 }

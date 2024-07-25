@@ -34,7 +34,7 @@ Route::group(['prefix'=>'materioteca'],function(){
 // Monday group
 Route::group(['prefix'=>'md'],function(){
     Route::controller(FunctionsController::class)->group(function(){
-        Route::get('/test',"writeMaterials");
+        Route::get('/test/{boardID}',"getBoardAllInfo");
     });
 });
 

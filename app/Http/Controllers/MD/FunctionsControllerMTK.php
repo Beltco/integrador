@@ -9,6 +9,8 @@ use App\Models\MD\BoardColumn;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MD\MethodsController;
+use App\Http\Controllers\MD\FunctionsController;
+
 
 class FunctionsControllerMTK extends Controller
 {
@@ -16,19 +18,20 @@ class FunctionsControllerMTK extends Controller
     function insertBoardItems($items,$boardId,$reset=false)
     {
         
-        $methods = new MethodsController;
+        $methods = new MethodsController();
+        $fn=new FunctionsController();
 
         if ($reset){
             BoardValue::query()->delete();
             Column::query()->delete();
             Board::query()->delete();
 
-            $info=$this->getBoardColumns($boardId);
-            $this->insert(New Board(),array('id'=>$boardId,'name'=>$info['name']));
+            $info=$fn->getBoardColumns($boardId);
+            $fn->insert(New Board(),array('id'=>$boardId,'name'=>$info['name']));
 
             $order=1;
             foreach ($info['columns'] as $column){
-                $this->insert(New Column(),array_merge(get_object_vars($column),array('board_id'=>$boardId,'order'=>$order)));
+                $fn->insert(New Column(),array_merge(get_object_vars($column),array('board_id'=>$boardId,'order'=>$order)));
                 $order++;
             } 
         }
@@ -36,15 +39,15 @@ class FunctionsControllerMTK extends Controller
         foreach ($items as $item) 
         {
             $records++;
-            $this->insert(New BoardValue,array('board_id'=>$boardId,'column_id'=>'name','record_id'=>$item->id,'value'=>$item->name));
+            $fn->insert(New BoardValue,array('board_id'=>$boardId,'column_id'=>'name','record_id'=>$item->id,'value'=>$item->name));
             foreach ($item->column_values as $value) {
                 if (strcmp($value->type,"file")==0)
-                    $data=$this->jsonFiles($value->value);
+                    $data=$fn->jsonFiles($value->value);
                 elseif (strcmp($value->type,"status")==0)
-                    $data=$this->status($value->value,$value->column->settings_str);
+                    $data=$fn->status($value->value,$value->column->settings_str);
                 else
                     $data=trim($value->value,'"');
-                $this->insert(New BoardValue,array('board_id'=>$boardId,'column_id'=>$value->id,'record_id'=>$item->id,'value'=>$data));
+                $fn->insert(New BoardValue,array('board_id'=>$boardId,'column_id'=>$value->id,'record_id'=>$item->id,'value'=>$data));
             }
         }
 
