@@ -5,9 +5,10 @@ namespace App\Http\Controllers\MD;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MD\MethodsController;
 use App\Models\MD\Column;
+use Exception;
 use stdClass;
 
-class FunctionsController extends Controller
+class MondayController extends Controller
 {
     // Get ELEMENTS columns ONLY. Don't get sub-elements columns
     function getBoardColumns($id)
@@ -29,7 +30,11 @@ class FunctionsController extends Controller
         $monday=New MethodsController();
 
         $query="{assets (ids:$assetId){name public_url}}";
+        try{
         $img=(json_decode($monday->apiCallMD($query)))->data->assets[0];
+        }catch(\Exception $e){
+          return array('type'=>'jpg','url'=>'https://integrador.beltforge.com/images/noimage.jpg');
+        }
         $ar=explode(".",$img->name);
         $ext=strtolower($ar[count($ar)-1]);
         $type=(strcmp(strtolower($ext),'png')==0||strcmp(strtolower($ext),'jpg')==0);
@@ -58,11 +63,13 @@ class FunctionsController extends Controller
     function jsonFiles($value)
     {
         $assetIds="[]";
+        $json=array();
 
         if (strlen($value)>0){
             foreach (json_decode($value)->files as $file){
                 $json[]=$file->assetId;
             }
+          
             $assetIds=json_encode($json);
         }
 

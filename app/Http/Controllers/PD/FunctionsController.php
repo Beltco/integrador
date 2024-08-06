@@ -5,8 +5,8 @@ namespace App\Http\Controllers\PD;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\PD;
-use App\Models\Deal;
-use App\Models\Product;
+use App\Models\PD\Deal;
+use App\Models\PD\Product;
 
 class FunctionsController extends Controller
 {

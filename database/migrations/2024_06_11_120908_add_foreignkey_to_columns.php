@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('board_columns', function (Blueprint $table) {
+        Schema::table('columns', function (Blueprint $table) {
             $table->foreign('board_id')->references('id')->on('boards');
-            $table->foreign('column_id')->references('id')->on('columns');
         });
     }
 
@@ -22,9 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('board_columns', function (Blueprint $table) {
-            $table->dropForeign(['board_id']);
-            $table->dropForeign(['column_id']);
+        Schema::table('columns', function (Blueprint $table) {
+            $table->dropForeign(['columns_board_id_foreign']);
         });
     }
 };

@@ -19,7 +19,7 @@ class FunctionsControllerMTK extends Controller
     {
         
         $methods = new MethodsController();
-        $fn=new FunctionsController();
+        $fn=new MondayController();
 
         if ($reset){
             BoardValue::query()->delete();

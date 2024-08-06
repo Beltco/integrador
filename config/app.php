@@ -211,5 +211,17 @@ return [
     'md_token' => env('APP_MD_TOKEN'),
     'md_apiurl' => env ('APP_MD_APIURL'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | BUK API Access (NRG)
+    |--------------------------------------------------------------------------
+    |
+    | This keys are provided by Pipedrive to have access to the API
+    |
+    */
+    
+    'bk_token' => env('APP_BK_TOKEN'),
+    'bk_apiurl' => env ('APP_BK_APIURL'),
+
 
 ];

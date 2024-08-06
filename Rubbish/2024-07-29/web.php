@@ -2,11 +2,9 @@
 
 use App\Models\PD\Deal;
 use App\Http\Controllers\MD;
-use App\Http\Controllers\MD\CalendarController;
-use App\Http\Controllers\MD\MondayController;
+use App\Http\Controllers\MD\FunctionsController;
 use App\Http\Controllers\MD\ItemControllerMTK;
 use App\Http\Controllers\PD;
-use App\Http\Controllers\BK\BukController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -35,27 +33,13 @@ Route::group(['prefix'=>'materioteca'],function(){
 
 // Monday group
 Route::group(['prefix'=>'md'],function(){
-    Route::controller(MondayController::class)->group(function(){
+    Route::controller(FunctionsController::class)->group(function(){
         Route::get('/test/{boardID}',"getBoardAllInfo");
     });
 });
 
-// BUK group
-Route::group(['prefix'=>'bk'],function(){
-    Route::controller(BukController::class)->group(function(){
-        Route::get('/test/{id}',"getEmployees");
-        Route::get('/test/',"getEmployees");
-    });
-});
 
-// Calendar group
-Route::group(['prefix'=>'reserva'],function(){
-    Route::controller(CalendarController::class)->group(function(){
-        Route::get('/',"index");
-        Route::get('/cb', [App\Http\Controllers\GoogleLoginController::class, 'handleGoogleCallback'])->name('reserva.cb');
-        Route::get('/redirect', [App\Http\Controllers\GoogleLoginController::class, 'redirectToGoogle'])->name('reserva.redirect');
-    });
-});
+
 
 
 Route::get('/PD/callback', [OauthController::class,'callback']);

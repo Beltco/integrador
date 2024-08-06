@@ -30,7 +30,7 @@ class ItemControllerMTK extends Controller
                 $imgs=json_decode($col->value);
                 if (count($imgs->assetIds)>0)
                     foreach ($imgs->assetIds as $img) {
-                        $file=FunctionsController::getImageUrl($img);
+                        $file=MondayController::getImageUrl($img);
                         if ($file['type'])
                             $pics[]=$file['url'];
                         else
@@ -38,6 +38,8 @@ class ItemControllerMTK extends Controller
                     }
                 else
                     $urls[]=asset('/images/noimage.jpg');
+                if (!isset($pics))
+                  $pics=['https://integrador.beltforge.com/images/noimage.jpg'];         
                 $data[$col->col_id]=array('title'=>$col->title,'value'=>$pics);  
                 if (!isset($pdfs))
                   $pdfs=[];

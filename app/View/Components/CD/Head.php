@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\MT;
+namespace App\View\Components\CD;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class footer extends Component
+class head extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class footer extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.MT.footer');
+        return view('components.CD.head');
     }
 }
