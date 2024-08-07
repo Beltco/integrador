@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('buk_employees', function (Blueprint $table) {
-            $table->integer('id')->unsigned();
+            $table->bigInteger('id')->unsigned();
             $table->primary('id');
-            $table->string('document_number',15)->unique();
+            $table->bigInteger('document_number',15)->unique();
             $table->string('full_name',60);
             $table->string('status',10);
             $table->datetime('processed')->useCurrent();

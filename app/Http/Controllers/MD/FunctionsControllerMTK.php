@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MD;
 use App\Models\MD\Column;
 use App\Models\MD\Board;
 use App\Models\MD\BoardValue;
+use App\Http\Controllers\Database;
 use App\Models\MD\BoardColumn;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,11 +28,11 @@ class FunctionsControllerMTK extends Controller
             Board::query()->delete();
 
             $info=$fn->getBoardColumns($boardId);
-            $fn->insert(New Board(),array('id'=>$boardId,'name'=>$info['name']));
+            Database::insert(New Board(),array('id'=>$boardId,'name'=>$info['name']));
 
             $order=1;
             foreach ($info['columns'] as $column){
-                $fn->insert(New Column(),array_merge(get_object_vars($column),array('board_id'=>$boardId,'order'=>$order)));
+                Database::insert(New Column(),array_merge(get_object_vars($column),array('board_id'=>$boardId,'order'=>$order)));
                 $order++;
             } 
         }
@@ -39,7 +40,7 @@ class FunctionsControllerMTK extends Controller
         foreach ($items as $item) 
         {
             $records++;
-            $fn->insert(New BoardValue,array('board_id'=>$boardId,'column_id'=>'name','record_id'=>$item->id,'value'=>$item->name));
+            Database::insert(New BoardValue,array('board_id'=>$boardId,'column_id'=>'name','record_id'=>$item->id,'value'=>$item->name));
             foreach ($item->column_values as $value) {
                 if (strcmp($value->type,"file")==0)
                     $data=$fn->jsonFiles($value->value);
@@ -47,7 +48,7 @@ class FunctionsControllerMTK extends Controller
                     $data=$fn->status($value->value,$value->column->settings_str);
                 else
                     $data=trim($value->value,'"');
-                $fn->insert(New BoardValue,array('board_id'=>$boardId,'column_id'=>$value->id,'record_id'=>$item->id,'value'=>$data));
+                Database::insert(New BoardValue,array('board_id'=>$boardId,'column_id'=>$value->id,'record_id'=>$item->id,'value'=>$data));
             }
         }
 

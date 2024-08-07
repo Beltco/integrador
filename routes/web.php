@@ -43,8 +43,9 @@ Route::group(['prefix'=>'md'],function(){
 // BUK group
 Route::group(['prefix'=>'bk'],function(){
     Route::controller(BukController::class)->group(function(){
-        Route::get('/test/{id}',"getEmployees");
-        Route::get('/test/',"getEmployees");
+        Route::get('/employees/{id}',"getEmployees");
+        Route::get('/employees/',"getEmployees");
+        Route::get('/',"getActivesMD");
     });
 });
 

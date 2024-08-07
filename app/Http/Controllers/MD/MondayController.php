@@ -42,24 +42,6 @@ class MondayController extends Controller
         return array('type'=>$type,'url'=>$img->public_url);
     }
 
-    // Insert record (array)$data into database table $table
-    function insert($table,$data)
-    {
-        foreach ($data as $key => $value) {
-            $table->$key=$value;
-        }
-        try{
-            $table->save();
-        } catch (\Exception $exception) {
-            $message = $exception->getMessage();
-
-            die("$message\n<br>* DATA *\n<br>$key => $value");
-        }
-
-        unset($table);
-
-    }
-
     function jsonFiles($value)
     {
         $assetIds="[]";
@@ -105,8 +87,22 @@ class MondayController extends Controller
                 if (!isset($value['index']))
                   $value['index']=5;
                 $detail=json_decode($fields['detail']['settings_str'],true);
-                foreach($detail['labels_positions_v2'] as $index=>$i)
+                try{
+                  $labels=$detail['labels_positions_v2'];  
+                }catch (\Exception $e) {
+                  $orden=1;
+                  foreach ($detail['labels'] as $idx=>$lbl){
+                    $labels[$idx]=$orden;
+                    $orden++;
+                  }
+                }                
+                foreach($labels as $index=>$i)
+                  try {
                     $options[$i]=array('label'=>$detail['labels'][$index],'color'=>$detail['labels_colors'][$index]['color']);
+                  } catch (\Exception $e) {
+                    $options[$i]=array('label'=>'','color'=>'#225091');
+                  }
+                
                 ksort($options);
                 $fields['detail']=array('selected'=>$value['index'],'options'=>$options);
             break;
@@ -277,7 +273,7 @@ class MondayController extends Controller
                 }
                 $cursor=$items_page->cursor;
             }while ($cursor);
-        } //foreach $groups
+          } //foreach $groups
         return $board;
     } // Function getBoardAllInfo
 }
