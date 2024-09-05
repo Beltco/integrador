@@ -13,11 +13,10 @@ class MondayController extends Controller
     // Get ELEMENTS columns ONLY. Don't get sub-elements columns
     function getBoardColumns($id)
     {
-        $monday=New MethodsController();
+        $monday=New MethodsControllerMD();
 
         $query="{boards (ids: $id){name columns{id title type}}}";
         $json=json_decode($monday->apiCallMD($query));
-
         $name=$json->data->boards[0]->name;
         $columns=$json->data->boards[0]->columns;
 
@@ -27,7 +26,7 @@ class MondayController extends Controller
     // Get temporary image URL from assetID set
     public static function getImageUrl($assetId)
     {
-        $monday=New MethodsController();
+        $monday=New MethodsControllerMD();
 
         $query="{assets (ids:$assetId){name public_url}}";
         try{
@@ -98,7 +97,7 @@ class MondayController extends Controller
                 }                
                 foreach($labels as $index=>$i)
                   try {
-                    $options[$i]=array('label'=>$detail['labels'][$index],'color'=>$detail['labels_colors'][$index]['color']);
+                    $options[$i]=array('label'=>$detail['labels'][$index],'color'=>$detail['labels_colors'][$index]['color'],'indice'=>$index);
                   } catch (\Exception $e) {
                     $options[$i]=array('label'=>'','color'=>'#225091');
                   }
@@ -118,7 +117,7 @@ class MondayController extends Controller
 
     function subItems($itemId)
     {
-        $md=New MethodsController();
+        $md=New MethodsControllerMD();
 
         $subItems=array();
 
@@ -160,26 +159,36 @@ class MondayController extends Controller
         return $subItems;
     }
 
-    function getBoardAllInfo($boardId) 
-    {
-        $monday=New MethodsController();
-        $limit=200;
+    function getGroups($boardId,$groupId=null){
+      $monday=New MethodsControllerMD();
 
-        $query="
+      $groups="";
+      if ($groupId)
+        $groups="(ids: ".'"'.$groupId.'"'.")";
+
+      $query="
+      {
+        boards(ids: $boardId) 
         {
-          boards(ids: $boardId) 
+          name
+          groups $groups
           {
-            name
-            groups 
-            {
-              id
-              title
-            }
+            id
+            title
           }
-        }";
-        $json=json_decode($monday->apiCallMD($query));
-        $board['name']=$json->data->boards[0]->name;
-        $groups=$json->data->boards[0]->groups;
+        }
+      }";
+      $json=json_decode($monday->apiCallMD($query));
+      $board['name']=$json->data->boards[0]->name;
+
+      return $json->data->boards[0]->groups;
+    }
+
+    function getBoardAllInfo($boardId,$groupId=false) 
+    {
+        $monday=New MethodsControllerMD();
+        $limit=200;
+        $groups=$this->getGroups($boardId,$groupId);
 
         foreach ($groups as $group) {
             $board['groups'][$group->id]['title']=$group->title;

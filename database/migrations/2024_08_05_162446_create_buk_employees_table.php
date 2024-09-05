@@ -14,8 +14,14 @@ return new class extends Migration
         Schema::create('buk_employees', function (Blueprint $table) {
             $table->bigInteger('id')->unsigned();
             $table->primary('id');
-            $table->bigInteger('document_number',15)->unique();
+            $table->bigInteger('document_number',15);
             $table->string('full_name',60);
+            $table->string('marital_status',15);
+            $table->string('address',100);
+            $table->string('city',30);
+            $table->string('mobile_number',15);
+            $table->string('eps',60);
+            $table->string('afp',25);
             $table->string('status',10);
             $table->datetime('processed')->useCurrent();
             $table->datetime('synchronized')->nullable();
@@ -31,3 +37,7 @@ return new class extends Migration
         Schema::dropIfExists('buk_employees');
     }
 };
+
+
+
+

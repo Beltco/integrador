@@ -7,6 +7,7 @@ use App\Http\Controllers\MD\MondayController;
 use App\Http\Controllers\MD\ItemControllerMTK;
 use App\Http\Controllers\PD;
 use App\Http\Controllers\BK\BukController;
+use App\Http\Controllers\BK\CreateActiveController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -44,8 +45,13 @@ Route::group(['prefix'=>'md'],function(){
 Route::group(['prefix'=>'bk'],function(){
     Route::controller(BukController::class)->group(function(){
         Route::get('/employees/{id}',"getEmployees");
-        Route::get('/employees/',"getEmployees");
-        Route::get('/',"getActivesMD");
+        Route::get('/employees',"getEmployees");
+        Route::get('/actives',"getActivesMD");
+    });
+    Route::controller(CreateActiveController::class)->group(function(){
+        Route::get('/',"index");
+        Route::get('/artistars',"listUnmatch");
+        Route::post('/artistars','sincro')->name('sincro');
     });
 });
 

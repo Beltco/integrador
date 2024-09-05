@@ -1,0 +1,751 @@
+[id] => 7206658954
+[name] => Ermis Maurel Leyva
+[column_values] => Array
+    (
+        [0] => stdClass Object
+            (
+                [id] => subelementos
+                [text] => 
+                [value] => {}
+                [type] => subtasks
+                [column] => stdClass Object
+                    (
+                        [title] => Subelementos
+                        [settings_str] => {"allowMultipleItems":true,"itemTypeName":"column.subtasks.title","displayType":"BOARD_INLINE","boardIds":[2546556476]}
+                    )
+
+            )
+
+        [1] => stdClass Object
+            (
+                [id] => c_dula
+                [text] => 7866890194
+                [value] => "7866890194"
+                [type] => numbers
+                [column] => stdClass Object
+                    (
+                        [title] => ID
+                        [settings_str] => {"function":"none","unit":{"direction":"right"}}
+                    )
+
+            )
+
+        [2] => stdClass Object
+            (
+                [id] => archivo
+                [text] => https://belt.monday.com/protected_static/1426349/resources/1612190802/WhatsApp%20Image%202023-10-31%20at%2012.30.53%20PM.jpeg
+                [value] => {"files":[{"name":"WhatsApp Image 2023-10-31 at 12.30.53 PM.jpeg","assetId":1612190802,"isImage":"true","fileType":"ASSET","createdAt":1698776343092,"createdBy":"17668476"}]}
+                [type] => file
+                [column] => stdClass Object
+                    (
+                        [title] => Foto
+                        [settings_str] => {"hide_footer":false}
+                    )
+
+            )
+
+        [3] => stdClass Object
+            (
+                [id] => texto4
+                [text] => Miami
+                [value] => "Miami"
+                [type] => text
+                [column] => stdClass Object
+                    (
+                        [title] => Exp. Cédula
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [4] => stdClass Object
+            (
+                [id] => tribu
+                [text] => CEx_Client Experience
+                [value] => {"index":0,"post_id":null}
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Tribu
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"0":3,"1":10,"2":1,"3":6,"6":0,"7":19,"10":18,"18":2,"19":7},"labels":{"0":"CEx_Client Experience","1":"M_Maestro","2":"CEx_PEx_Hybrid","3":"PEx_Product Experience","5":"","7":"SOp_Smart Operations"},"labels_positions_v2":{"0":3,"1":0,"2":2,"3":1,"5":5,"7":4},"labels_colors":{"0":{"color":"#007eb5","border":"#3db0df","var_name":"blue-links"},"1":{"color":"#333333","border":"#000","var_name":"soft-black"},"2":{"color":"#00c875","border":"#00b461","var_name":"green-shadow"},"3":{"color":"#037f4c","border":"#006b38","var_name":"grass-green"},"5":{"color":"#c4c4c4","border":"#b0b0b0","var_name":"grey"},"7":{"color":"#ff6d3b","border":"#e05828","var_name":"dark-orange"}}}
+                    )
+
+            )
+
+        [5] => stdClass Object
+            (
+                [id] => squad
+                [text] => Field Operation
+                [value] => {"index":7,"post_id":null}
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Escuadron
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"0":109,"2":0,"3":157,"4":156,"7":107,"9":160,"12":4,"14":7,"16":158,"101":103,"103":12,"105":154,"107":16,"109":153,"153":101,"154":14,"155":2,"156":105,"157":3,"158":155,"160":9},"labels":{"0":"Client Op+Services","1":"Product Development","2":"Supply Chain","3":"Chief","4":"Sustainability","6":"Manufacturing","7":"Field Operation","8":"IT","9":"Manufacturing Admon","11":"People","12":"Brand\u0026Co","14":"Client Relations","15":"Estimation","18":"Maestro","19":"Finance","106":"Client Logistics","108":"Design","155":"Quality"},"labels_positions_v2":{"0":2,"1":11,"2":7,"3":16,"4":18,"5":15,"6":10,"7":3,"8":8,"9":9,"11":4,"12":0,"14":1,"15":13,"18":17,"19":5,"106":14,"108":12,"155":6},"labels_colors":{"0":{"color":"#5559df","border":"#5559df","var_name":"indigo"},"1":{"color":"#00c875","border":"#00b461","var_name":"green-shadow"},"2":{"color":"#fdab3d","border":"#e99729","var_name":"orange"},"3":{"color":"#bca58a","border":"#bca58a","var_name":"corona"},"4":{"color":"#9d99b9","border":"#9d99b9","var_name":"purple_gray"},"6":{"color":"#037f4c","border":"#006b38","var_name":"grass-green"},"7":{"color":"#225091","border":"#225091","var_name":"navy"},"8":{"color":"#cab641","border":"#c0ab31","var_name":"mustered"},"9":{"color":"#175a63","border":"#175a63","var_name":"eden"},"11":{"color":"#bb3354","border":"#a42d4a","var_name":"dark-red"},"12":{"color":"#9d50dd","border":"#9238af","var_name":"purple"},"14":{"color":"#579bfc","border":"#4387e8","var_name":"bright-blue"},"15":{"color":"#9cd326","border":"#89b921","var_name":"lime-green"},"18":{"color":"#7f5347","border":"#70493e","var_name":"brown"},"19":{"color":"#ff6d3b","border":"#e05828","var_name":"dark-orange"},"106":{"color":"#74afcc","border":"#74afcc","var_name":"river"},"108":{"color":"#4eccc6","border":"#4eccc6","var_name":"australia"},"155":{"color":"#df2f4a","border":"#ce3048","var_name":"red-shadow"}}}
+                    )
+
+            )
+
+        [6] => stdClass Object
+            (
+                [id] => dup__of_cargo3
+                [text] => Installation Helper
+                [value] => {"ids":[54],"changed_at":null}
+                [type] => dropdown
+                [column] => stdClass Object
+                    (
+                        [title] => Cargos
+                        [settings_str] => {"limit_select":false,"labels":[{"name":"Manufacturing Operator","id":1},{"name":"Assembly Officer","id":2},{"name":"Client Relations Leader","id":3},{"name":"Assembly Assistant","id":4},{"name":"Project Leader","id":5},{"name":"Subprocess Officer (Forging \u0026 Casting)","id":6},{"name":"Installer","id":7},{"name":"Internal Communications Coordinator","id":8},{"name":"Administrative Manufacturing Engineer","id":9},{"name":"Quality Integrator","id":10},{"name":"Talent Acquisition Analyst","id":11},{"name":"Brand\u0026Co Leader","id":12},{"name":"Quality Leader","id":13},{"name":"Quality Intern","id":14},{"name":"Product Designer","id":15},{"name":"Health and Safety Assistant","id":16},{"name":"Manufacturing Supervisor","id":17},{"name":"Chief Smart Operating Officer","id":18},{"name":"Chief Executive Officer/Maestro","id":19},{"name":"Health and Safety Specialist","id":20},{"name":"Maintenance Coordinator","id":21},{"name":"Chief Client Experience Officer","id":22},{"name":"Design Architect","id":23},{"name":"Procurement Coordinator","id":24},{"name":"CEx Tribe Support","id":25},{"name":"Prep\u0026Pack Officer","id":26},{"name":"Cost Auditor","id":27},{"name":"Client Project Logistics Coordinator","id":28},{"name":"Procurement Assistant","id":29},{"name":"People Experience Coordinator","id":30},{"name":"Supply Chain Leader","id":31},{"name":"Project Analyst","id":32},{"name":"Row Warehouse Assistant","id":33},{"name":"Modeling and Finishing Specialist","id":34},{"name":"Finishing Officer","id":35},{"name":"Maintenance Assistant","id":36},{"name":"Project Success Manager","id":37},{"name":"Estimation Leader","id":38},{"name":"Machining Operator","id":39},{"name":"Supply Chain Support","id":40},{"name":"Welder","id":41},{"name":"Product Developer","id":42},{"name":"Executive Administrative Assistant","id":43},{"name":"Estimator","id":44},{"name":"Chief Sustainability Officer","id":45},{"name":"Business Developer Coordinator","id":46},{"name":"Manufacturing Leader","id":47},{"name":"Finance Leader","id":48},{"name":"Assembly Coordinator","id":49},{"name":"Bookkeeper","id":50},{"name":"Finishing and Packing Coordinator","id":51},{"name":"Dream Design Consultant","id":52},{"name":"IT Leader","id":53},{"name":"Installation Helper","id":54},{"name":"IT Analyst","id":55},{"name":"Developer","id":56},{"name":"Subprocess Coordinator","id":57},{"name":"Accountant \u0026 Payroll Intern","id":58},{"name":"People Leader","id":59},{"name":"People Relations Assistant","id":60},{"name":"Estimation Assistant","id":61},{"name":"Brand Creative","id":62},{"name":"Adminstrative Assistant","id":63},{"name":"Central Warehouse Assistant","id":64},{"name":"Brand\u0026Co Intern","id":65},{"name":"Estimation Intern","id":66},{"name":"Product Development Leader","id":67},{"name":"Leader Design","id":68},{"name":"Design Intern","id":69},{"name":"Manufacturing Operations Engineer","id":70},{"name":"Brand Assurance","id":71},{"name":"Supply Chain Intern","id":72},{"name":"Manufacturing Intern","id":73},{"id":74,"name":"ACCOUNTANT \u0026 PAYROLL ANALYST)"},{"id":75,"name":"Accountant \u0026 Payroll Specialyst"},{"id":76,"name":"Accountant \u0026 PayrolL Analyst"},{"id":77,"name":"Product Development Intern"},{"id":78,"name":"Field Operations Leader"},{"id":79,"name":"Manufacturing Adiministrative coordinator"},{"id":80,"name":"Brand designer"},{"id":81,"name":"People Assistant"},{"id":82,"name":"Field Operations Coordinator"},{"id":83,"name":"Procurement Intern"},{"id":84,"name":"warehou"},{"id":85,"name":"Warehouse Coordinator"},{"id":86,"name":"Warehouse Coordinator"},{"id":87,"name":"People Intern"},{"id":88,"name":"Warehouse Assistant"},{"id":89,"name":"ASSEMBLY COORDINATOR ASSISTANT"},{"id":90,"name":"Project Leader For Standarization of Finishes and Patina"},{"id":91,"name":"Operations Leader"},{"id":92,"name":"Sustainability Administrative Assistant"},{"id":93,"name":"IT INTERN"},{"id":94,"name":"Field Operations Intern"}],"deactivated_labels":[]}
+                    )
+
+            )
+
+        [7] => stdClass Object
+            (
+                [id] => estado8
+                [text] => 
+                [value] => 
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Role
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"0":107,"1":153,"2":7,"3":16,"4":158,"7":2,"16":102,"102":3,"107":0,"108":4,"109":1,"153":109,"154":154,"158":108},"labels":{"0":"Chief","1":"Leader","2":"Coordinator","3":"Assistant","4":"Operative","102":"Executive"},"labels_positions_v2":{"0":0,"1":1,"2":2,"3":4,"4":5,"5":6,"102":3},"labels_colors":{"0":{"color":"#225091","border":"#225091","var_name":"navy"},"1":{"color":"#216edf","border":"#216edf","var_name":"sky"},"2":{"color":"#579bfc","border":"#4387e8","var_name":"bright-blue"},"3":{"color":"#66ccff","border":"#5ab3e0","var_name":"turquoise"},"4":{"color":"#a1e3f6","border":"#a1e3f6","var_name":"sail"},"102":{"color":"#007eb5","border":"#3db0df","var_name":"blue-links"}}}
+                    )
+
+            )
+
+        [8] => stdClass Object
+            (
+                [id] => dup__of_role
+                [text] => 
+                [value] => 
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Role Eval
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"0":107,"1":153,"2":7,"3":16,"4":158,"6":106,"7":2,"16":102,"102":3,"106":6,"107":0,"108":4,"109":1,"153":109,"154":154,"158":108},"labels":{"0":"Capa 1","1":"Capa 2","2":"","3":"Assistant","4":"Operative","6":"Capa 3","102":"Capa 4"},"labels_positions_v2":{"0":0,"1":1,"2":2,"3":4,"4":5,"5":6,"6":0,"102":3},"labels_colors":{"0":{"color":"#225091","border":"#225091","var_name":"navy"},"1":{"color":"#216edf","border":"#216edf","var_name":"sky"},"2":{"color":"#579bfc","border":"#4387e8","var_name":"bright-blue"},"3":{"color":"#66ccff","border":"#5ab3e0","var_name":"turquoise"},"4":{"color":"#a1e3f6","border":"#a1e3f6","var_name":"sail"},"6":{"color":"#74afcc","border":"#74afcc","var_name":"river"},"102":{"color":"#007eb5","border":"#3db0df","var_name":"blue-links"}}}
+                    )
+
+            )
+
+        [9] => stdClass Object
+            (
+                [id] => fecha_de_ingreso
+                [text] => 2023-10-31
+                [value] => {"date":"2023-10-31"}
+                [type] => date
+                [column] => stdClass Object
+                    (
+                        [title] => Fecha 1er ingreso a BELT (hasta 3 meses de reintegro)
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [10] => stdClass Object
+            (
+                [id] => dup__of_mes_nacimiento
+                [text] => Octubre
+                [value] => {"index":3,"post_id":null,"changed_at":"2024-08-12T12:56:23.117Z"}
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Mes 1er ingreso
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"0":3,"1":109,"2":160,"3":19,"4":1,"6":8,"7":159,"8":13,"9":6,"10":2,"11":4,"12":11,"13":14,"14":108,"15":107,"16":10,"17":103,"18":105,"19":155,"101":110,"103":15,"104":9,"105":101,"106":18,"107":16,"108":7,"109":104,"110":17,"155":0,"159":12,"160":106},"labels":{"0":"Julio","1":"Agosto","2":"Marzo","3":"Octubre","4":"Noviembre","6":"Septiembre","7":"Abril","8":"Enero","12":"Diciembre","14":"Febrero","17":"Junio","19":"Mayo"},"labels_positions_v2":{"0":7,"1":8,"2":3,"3":10,"4":11,"5":0,"6":9,"7":4,"8":1,"12":12,"14":2,"17":6,"19":5},"labels_colors":{"0":{"color":"#007eb5","border":"#3db0df","var_name":"blue-links"},"1":{"color":"#5559df","border":"#5559df","var_name":"indigo"},"2":{"color":"#175a63","border":"#175a63","var_name":"eden"},"3":{"color":"#ff6d3b","border":"#e05828","var_name":"dark-orange"},"4":{"color":"#00c875","border":"#00b461","var_name":"green-shadow"},"6":{"color":"#cab641","border":"#c0ab31","var_name":"mustered"},"7":{"color":"#cd9282","border":"#cd9282","var_name":"old_rose"},"8":{"color":"#ff5ac4","border":"#e04fac","var_name":"light-pink"},"12":{"color":"#bb3354","border":"#a42d4a","var_name":"dark-red"},"14":{"color":"#4eccc6","border":"#4eccc6","var_name":"australia"},"17":{"color":"#ffadad","border":"#ffadad","var_name":"peach"},"19":{"color":"#e484bd","border":"#e484bd","var_name":"kids"}}}
+                    )
+
+            )
+
+        [11] => stdClass Object
+            (
+                [id] => fecha
+                [text] => 2024-08-12
+                [value] => {"date":"2024-08-12","changed_at":"2024-08-12T12:56:33.919Z"}
+                [type] => date
+                [column] => stdClass Object
+                    (
+                        [title] => F.Inicio Contrato
+                        [settings_str] => {"hide_footer":false}
+                    )
+
+            )
+
+        [12] => stdClass Object
+            (
+                [id] => ft_contrato6
+                [text] => 
+                [value] => 
+                [type] => date
+                [column] => stdClass Object
+                    (
+                        [title] => F.Termina Contrato
+                        [settings_str] => {"date_format":"WITH_YEAR"}
+                    )
+
+            )
+
+        [13] => stdClass Object
+            (
+                [id] => contrataci_n
+                [text] => Coadvantage
+                [value] => {"index":4,"post_id":null,"changed_at":"2024-08-12T12:57:29.693Z"}
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Contrato
+                        [settings_str] => {"done_colors":[1],"hide_footer":false,"color_mapping":{"0":152,"1":104,"2":4,"3":102,"4":14,"6":11,"7":103,"11":12,"12":155,"14":156,"16":2,"102":108,"103":7,"104":105,"105":1,"106":0,"108":3,"110":16,"152":106,"155":6,"156":110},"labels":{"0":"Temporal","1":"Directo","2":"Pr.Servicio","3":"SENA","4":"Coadvantage","5":"","6":"Obra o labor","7":"Universidad"},"labels_positions_v2":{"0":1,"1":0,"2":2,"3":4,"4":5,"5":6,"6":7,"7":3},"labels_colors":{"0":{"color":"#bda8f9","border":"#bda8f9","var_name":"light_magic"},"1":{"color":"#7e3b8a","border":"#7e3b8a","var_name":"berry"},"2":{"color":"#9d50dd","border":"#9238af","var_name":"purple"},"3":{"color":"#faa1f1","border":"#faa1f1","var_name":"bubble"},"4":{"color":"#784bd1","border":"#8f4dc4","var_name":"dark-purple"},"5":{"color":"#c4c4c4","border":"#b0b0b0","var_name":"grey"},"6":{"color":"#bb3354","border":"#a42d4a","var_name":"dark-red"},"7":{"color":"#ffadad","border":"#ffadad","var_name":"peach"}}}
+                    )
+
+            )
+
+        [14] => stdClass Object
+            (
+                [id] => ubicaci_n
+                [text] => USA
+                [value] => {"index":1,"post_id":null,"changed_at":"2024-08-12T12:57:32.173Z"}
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Ubicación
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"0":101,"1":103,"8":152,"9":0,"101":9,"103":8,"152":158,"158":1},"labels":{"0":"COL","1":"USA","5":""},"labels_positions_v2":{"0":1,"1":0,"5":2},"labels_colors":{"0":{"color":"#ff7575","border":"#ff7575","var_name":"sunset"},"1":{"color":"#ffadad","border":"#ffadad","var_name":"peach"},"5":{"color":"#c4c4c4","border":"#b0b0b0","var_name":"grey"}}}
+                    )
+
+            )
+
+        [15] => stdClass Object
+            (
+                [id] => g_nero
+                [text] => M
+                [value] => {"index":0,"post_id":null}
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Género
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"0":158,"1":102,"3":0,"13":1,"102":13,"158":3},"labels":{"0":"M","1":"F","5":""},"labels_positions_v2":{"0":1,"1":0,"5":2},"labels_colors":{"0":{"color":"#a1e3f6","border":"#a1e3f6","var_name":"sail"},"1":{"color":"#faa1f1","border":"#faa1f1","var_name":"bubble"},"5":{"color":"#c4c4c4","border":"#b0b0b0","var_name":"grey"}}}
+                    )
+
+            )
+
+        [16] => stdClass Object
+            (
+                [id] => fecha_nacimiento
+                [text] => 1992-10-17
+                [value] => {"date":"1992-10-17"}
+                [type] => date
+                [column] => stdClass Object
+                    (
+                        [title] => Fecha nacimiento
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [17] => stdClass Object
+            (
+                [id] => f_rmula2
+                [text] => 
+                [value] => 
+                [type] => formula
+                [column] => stdClass Object
+                    (
+                        [title] => Edad
+                        [settings_str] => {"formula":"(YEAR(TODAY())-YEAR({fecha_nacimiento}))"}
+                    )
+
+            )
+
+        [18] => stdClass Object
+            (
+                [id] => month_1
+                [text] => Octubre
+                [value] => {"index":3,"post_id":null,"changed_at":"2024-08-12T12:57:39.186Z"}
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Mes Nacimiento
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"0":3,"1":109,"2":160,"3":19,"4":1,"6":8,"7":159,"8":13,"9":6,"10":2,"11":4,"12":11,"13":14,"14":108,"15":107,"16":10,"17":103,"18":105,"19":155,"101":110,"103":15,"104":9,"105":101,"106":18,"107":16,"108":7,"109":104,"110":17,"155":0,"159":12,"160":106},"labels":{"0":"Julio","1":"Agosto","2":"Marzo","3":"Octubre","4":"Noviembre","6":"Septiembre","7":"Abril","8":"Enero","12":"Diciembre","14":"Febrero","17":"Junio","19":"Mayo"},"labels_positions_v2":{"0":7,"1":8,"2":3,"3":10,"4":11,"5":0,"6":9,"7":4,"8":1,"12":12,"14":2,"17":6,"19":5},"labels_colors":{"0":{"color":"#007eb5","border":"#3db0df","var_name":"blue-links"},"1":{"color":"#5559df","border":"#5559df","var_name":"indigo"},"2":{"color":"#175a63","border":"#175a63","var_name":"eden"},"3":{"color":"#ff6d3b","border":"#e05828","var_name":"dark-orange"},"4":{"color":"#00c875","border":"#00b461","var_name":"green-shadow"},"6":{"color":"#cab641","border":"#c0ab31","var_name":"mustered"},"7":{"color":"#cd9282","border":"#cd9282","var_name":"old_rose"},"8":{"color":"#ff5ac4","border":"#e04fac","var_name":"light-pink"},"12":{"color":"#bb3354","border":"#a42d4a","var_name":"dark-red"},"14":{"color":"#4eccc6","border":"#4eccc6","var_name":"australia"},"17":{"color":"#ffadad","border":"#ffadad","var_name":"peach"},"19":{"color":"#e484bd","border":"#e484bd","var_name":"kids"}}}
+                    )
+
+            )
+
+        [19] => stdClass Object
+            (
+                [id] => texto0
+                [text] => Ing. Mecánica
+                [value] => "Ing. Mecánica"
+                [type] => text
+                [column] => stdClass Object
+                    (
+                        [title] => Educación
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [20] => stdClass Object
+            (
+                [id] => verificar
+                [text] => v
+                [value] => {"checked":true,"changed_at":"2023-10-30T21:56:21.279Z"}
+                [type] => checkbox
+                [column] => stdClass Object
+                    (
+                        [title] => Hijos
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [21] => stdClass Object
+            (
+                [id] => dup__of_g_nero
+                [text] => Soltero/a
+                [value] => {"index":1,"post_id":null}
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Estado civil
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"0":3,"1":101,"3":0,"13":1,"101":102,"102":13,"158":158},"labels":{"0":"Casado/a","1":"Soltero/a","2":"Separado/a","3":"Divorciado/a","4":"Viudo/a","5":"","6":"Unión libre"},"labels_positions_v2":{"0":1,"1":0,"2":3,"3":4,"4":5,"5":2,"6":6},"labels_colors":{"0":{"color":"#007eb5","border":"#3db0df","var_name":"blue-links"},"1":{"color":"#ff7575","border":"#ff7575","var_name":"sunset"},"2":{"color":"#df2f4a","border":"#ce3048","var_name":"red-shadow"},"3":{"color":"#fdab3d","border":"#e99729","var_name":"orange"},"4":{"color":"#9d50dd","border":"#9238af","var_name":"purple"},"5":{"color":"#c4c4c4","border":"#b0b0b0","var_name":"grey"},"6":{"color":"#037f4c","border":"#006b38","var_name":"grass-green"}}}
+                    )
+
+            )
+
+        [22] => stdClass Object
+            (
+                [id] => texto05
+                [text] => 2507 NW 16TH STREET RD APT 204 MIAMI. FL 33125-1248
+                [value] => "2507 NW 16TH STREET RD APT 204 MIAMI. FL 33125-1248"
+                [type] => text
+                [column] => stdClass Object
+                    (
+                        [title] => Dirección
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [23] => stdClass Object
+            (
+                [id] => texto49
+                [text] => Miami
+                [value] => "Miami"
+                [type] => text
+                [column] => stdClass Object
+                    (
+                        [title] => Barrio
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [24] => stdClass Object
+            (
+                [id] => estado_1
+                [text] => USA
+                [value] => {"index":1,"post_id":null,"changed_at":"2024-08-12T12:59:08.251Z"}
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Lugar Residencia
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"0":160,"1":153,"3":159,"4":8,"7":108,"8":0,"108":7,"153":1,"159":3,"160":4},"labels":{"0":"La tebaida","1":"USA","2":"Calarca","3":"Caicedonia","4":"Bogota","6":"Florida","7":"Montenegro","8":"NY","9":"Texas","10":"Circasia","11":"Otro","12":"Quimbaya","13":"Barranquilla","14":"Armenia","15":"Cartago","16":"Manizales","17":"Salento"},"labels_positions_v2":{"0":2,"1":0,"2":4,"3":13,"4":8,"5":15,"6":1,"7":5,"8":12,"9":11,"10":7,"11":10,"12":6,"13":9,"14":3,"15":14,"16":16,"17":0},"labels_colors":{"0":{"color":"#175a63","border":"#175a63","var_name":"eden"},"1":{"color":"#216edf","border":"#216edf","var_name":"sky"},"2":{"color":"#df2f4a","border":"#ce3048","var_name":"red-shadow"},"3":{"color":"#cd9282","border":"#cd9282","var_name":"old_rose"},"4":{"color":"#cab641","border":"#c0ab31","var_name":"mustered"},"6":{"color":"#037f4c","border":"#006b38","var_name":"grass-green"},"7":{"color":"#4eccc6","border":"#4eccc6","var_name":"australia"},"8":{"color":"#fdab3d","border":"#e99729","var_name":"orange"},"9":{"color":"#ffcb00","border":"#c0ab1b","var_name":"yellow"},"10":{"color":"#333333","border":"#000","var_name":"soft-black"},"11":{"color":"#bb3354","border":"#a42d4a","var_name":"dark-red"},"12":{"color":"#ff007f","border":"#e01279","var_name":"dark-pink"},"13":{"color":"#ff5ac4","border":"#e04fac","var_name":"light-pink"},"14":{"color":"#784bd1","border":"#8f4dc4","var_name":"dark-purple"},"15":{"color":"#9cd326","border":"#89b921","var_name":"lime-green"},"16":{"color":"#66ccff","border":"#5ab3e0","var_name":"turquoise"},"17":{"color":"#757575","border":"#707070","var_name":"trolley-grey"}}}
+                    )
+
+            )
+
+        [25] => stdClass Object
+            (
+                [id] => tel_fono9
+                [text] => 17866890194
+                [value] => {"phone":"17866890194","countryShortName":"US"}
+                [type] => phone
+                [column] => stdClass Object
+                    (
+                        [title] => Tel. Personal
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [26] => stdClass Object
+            (
+                [id] => correo_electr_nico
+                [text] => ermismaurel@gmail.com
+                [value] => {"text":"ermismaurel@gmail.com","email":"ermismaurel@gmail.com"}
+                [type] => email
+                [column] => stdClass Object
+                    (
+                        [title] => E-mail personal
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [27] => stdClass Object
+            (
+                [id] => dup__of_e_mail_personal
+                [text] => 
+                [value] => 
+                [type] => email
+                [column] => stdClass Object
+                    (
+                        [title] => E-mail BELT
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [28] => stdClass Object
+            (
+                [id] => texto40
+                [text] => O+
+                [value] => "O+"
+                [type] => text
+                [column] => stdClass Object
+                    (
+                        [title] => RH
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [29] => stdClass Object
+            (
+                [id] => texto
+                [text] => N/A
+                [value] => "N/A"
+                [type] => text
+                [column] => stdClass Object
+                    (
+                        [title] => EPS
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [30] => stdClass Object
+            (
+                [id] => texto6
+                [text] => N/A
+                [value] => "N/A"
+                [type] => text
+                [column] => stdClass Object
+                    (
+                        [title] => AFP
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [31] => stdClass Object
+            (
+                [id] => texto2
+                [text] => Osmaida Exposito.   Es una amiga
+                [value] => "Osmaida Exposito.   Es una amiga"
+                [type] => text
+                [column] => stdClass Object
+                    (
+                        [title] => Contacto Emergencia
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [32] => stdClass Object
+            (
+                [id] => tel_fono
+                [text] => 17865863165
+                [value] => {"phone":"17865863165","countryShortName":"US"}
+                [type] => phone
+                [column] => stdClass Object
+                    (
+                        [title] => Teléfono Emergencia
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [33] => stdClass Object
+            (
+                [id] => salario9
+                [text] => 
+                [value] => 
+                [type] => numbers
+                [column] => stdClass Object
+                    (
+                        [title] => Salario
+                        [settings_str] => {"unit":{"symbol":"$","custom_unit":"","direction":"left"}}
+                    )
+
+            )
+
+        [34] => stdClass Object
+            (
+                [id] => f_rmula3
+                [text] => 
+                [value] => 
+                [type] => formula
+                [column] => stdClass Object
+                    (
+                        [title] => Aux.Transporte
+                        [settings_str] => {"formula":"IF(OR({contrataci_n}=\"SENA\",{contrataci_n}=\"Universidad\",{contrataci_n}=\"CoAdvantage\"),0,IF({salario9}\u003c2600001,162000,0))"}
+                    )
+
+            )
+
+        [35] => stdClass Object
+            (
+                [id] => f_rmula4
+                [text] => 
+                [value] => 
+                [type] => formula
+                [column] => stdClass Object
+                    (
+                        [title] => Total
+                        [settings_str] => {"formula":"SUM({salario9},{f_rmula3})"}
+                    )
+
+            )
+
+        [36] => stdClass Object
+            (
+                [id] => salario_base_full1
+                [text] => 
+                [value] => 
+                [type] => numbers
+                [column] => stdClass Object
+                    (
+                        [title] => Salario Base Full
+                        [settings_str] => {"unit":{"symbol":"$","custom_unit":"","direction":"left"}}
+                    )
+
+            )
+
+        [37] => stdClass Object
+            (
+                [id] => n_meros69
+                [text] => 
+                [value] => 
+                [type] => numbers
+                [column] => stdClass Object
+                    (
+                        [title] => Bono fijo MANUFACTURA
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [38] => stdClass Object
+            (
+                [id] => bono_mensual_20213
+                [text] => 
+                [value] => 
+                [type] => numbers
+                [column] => stdClass Object
+                    (
+                        [title] => BNC Mensual
+                        [settings_str] => {"unit":{"symbol":"$","custom_unit":"","direction":"left"}}
+                    )
+
+            )
+
+        [39] => stdClass Object
+            (
+                [id] => bono_trimestral7
+                [text] => 
+                [value] => 
+                [type] => numbers
+                [column] => stdClass Object
+                    (
+                        [title] => BNC Trimestral
+                        [settings_str] => {"unit":{"symbol":"$","custom_unit":"","direction":"left"}}
+                    )
+
+            )
+
+        [40] => stdClass Object
+            (
+                [id] => observaci_n_salarios
+                [text] => 
+                [value] => 
+                [type] => long_text
+                [column] => stdClass Object
+                    (
+                        [title] => Observación
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [41] => stdClass Object
+            (
+                [id] => estado_11
+                [text] => 
+                [value] => 
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Clasif.Nómina
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"2":110,"4":101,"6":105,"7":4,"101":108,"105":154,"108":7,"110":2,"154":6},"labels":{"0":"Armado","1":"Ayudantia","2":"Administrativo","3":"Instalador","4":"Subprocesos","104":"Socios"},"labels_positions_v2":{"0":1,"1":2,"2":0,"3":5,"4":6,"5":4,"104":3},"labels_colors":{"0":{"color":"#fdab3d","border":"#e99729","var_name":"orange"},"1":{"color":"#00c875","border":"#00b461","var_name":"green-shadow"},"2":{"color":"#401694","border":"#401694","var_name":"dark_indigo"},"3":{"color":"#007eb5","border":"#3db0df","var_name":"blue-links"},"4":{"color":"#ff7575","border":"#ff7575","var_name":"sunset"},"104":{"color":"#7e3b8a","border":"#7e3b8a","var_name":"berry"}}}
+                    )
+
+            )
+
+        [42] => stdClass Object
+            (
+                [id] => men__desplegable
+                [text] => 
+                [value] => 
+                [type] => dropdown
+                [column] => stdClass Object
+                    (
+                        [title] => Talla Polo/Camisa
+                        [settings_str] => {"hide_footer":false,"labels":[{"id":1,"name":"M"},{"id":3,"name":"S"},{"id":4,"name":"L"},{"id":5,"name":"XL"},{"id":6,"name":"XS"},{"id":7,"name":"XXXL"}]}
+                    )
+
+            )
+
+        [43] => stdClass Object
+            (
+                [id] => dup__of_talla_polo_camisa
+                [text] => 
+                [value] => 
+                [type] => dropdown
+                [column] => stdClass Object
+                    (
+                        [title] => Talla Pantalón
+                        [settings_str] => {"hide_footer":false,"labels":[{"id":6,"name":"28"},{"id":7,"name":"30"},{"id":8,"name":"32"},{"id":9,"name":"34"},{"id":10,"name":"36"},{"id":11,"name":"38"},{"id":12,"name":"40"},{"id":13,"name":"20"},{"id":14,"name":"10"},{"id":15,"name":"8"},{"id":16,"name":"6"},{"id":17,"name":"36/30"},{"id":18,"name":"32/30"},{"id":19,"name":"38/32"},{"id":20,"name":"12"},{"id":21,"name":"14"},{"id":22,"name":"42"}]}
+                    )
+
+            )
+
+        [44] => stdClass Object
+            (
+                [id] => dup__of_talla_pantal_n
+                [text] => 
+                [value] => 
+                [type] => dropdown
+                [column] => stdClass Object
+                    (
+                        [title] => Talla Botas
+                        [settings_str] => {"hide_footer":false,"labels":[{"id":1,"name":"36"},{"id":2,"name":"37"},{"id":3,"name":"38"},{"id":4,"name":"39"},{"id":5,"name":"40"},{"id":6,"name":"41"},{"id":7,"name":"42"},{"id":8,"name":"43"},{"id":9,"name":"44"},{"id":10,"name":"35"},{"id":11,"name":"11.5"},{"id":12,"name":"8.5"},{"id":13,"name":"10.5"},{"id":14,"name":"9"},{"id":15,"name":"9.5"},{"id":16,"name":"11"},{"id":17,"name":"8"}]}
+                    )
+
+            )
+
+        [45] => stdClass Object
+            (
+                [id] => estado_10
+                [text] => 
+                [value] => 
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Cod. Dotación
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"7":19,"8":110,"9":153,"19":7,"110":8,"153":9},"labels":{"0":"AD+2S","1":"ADMF+2S","2":"AD-2S","3":"SCP","4":"MF1","5":"","6":"MF2","7":"MF3","8":"USA","9":"FO","101":"ADMF-2S"},"labels_positions_v2":{"0":0,"1":1,"2":2,"3":5,"4":6,"5":3,"6":7,"7":8,"8":9,"9":10,"101":4},"labels_colors":{"0":{"color":"#fdab3d","border":"#e99729","var_name":"orange"},"1":{"color":"#00c875","border":"#00b461","var_name":"green-shadow"},"2":{"color":"#df2f4a","border":"#ce3048","var_name":"red-shadow"},"3":{"color":"#007eb5","border":"#3db0df","var_name":"blue-links"},"4":{"color":"#9d50dd","border":"#9238af","var_name":"purple"},"5":{"color":"#c4c4c4","border":"#b0b0b0","var_name":"grey"},"6":{"color":"#037f4c","border":"#006b38","var_name":"grass-green"},"7":{"color":"#ff6d3b","border":"#e05828","var_name":"dark-orange"},"8":{"color":"#401694","border":"#401694","var_name":"dark_indigo"},"9":{"color":"#216edf","border":"#216edf","var_name":"sky"},"101":{"color":"#ff7575","border":"#ff7575","var_name":"sunset"}}}
+                    )
+
+            )
+
+        [46] => stdClass Object
+            (
+                [id] => enlace
+                [text] => 
+                [value] => 
+                [type] => link
+                [column] => stdClass Object
+                    (
+                        [title] => Enlace dotación
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [47] => stdClass Object
+            (
+                [id] => texto04
+                [text] => 
+                [value] => 
+                [type] => text
+                [column] => stdClass Object
+                    (
+                        [title] => No.Tarj. dotación
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [48] => stdClass Object
+            (
+                [id] => text
+                [text] => 
+                [value] => 
+                [type] => text
+                [column] => stdClass Object
+                    (
+                        [title] => Cod.Tarj. dotación
+                        [settings_str] => {}
+                    )
+
+            )
+
+        [49] => stdClass Object
+            (
+                [id] => estado_148
+                [text] => Sin asignación
+                [value] => 
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => UBITS
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"0":155,"1":109,"2":154,"7":0,"103":108,"108":7,"109":1,"154":2,"155":103},"labels":{"0":"Basica","1":"Max","2":"NA","5":"Sin asignación"},"labels_positions_v2":{"0":0,"1":1,"2":3,"5":2},"labels_colors":{"0":{"color":"#e484bd","border":"#e484bd","var_name":"kids"},"1":{"color":"#5559df","border":"#5559df","var_name":"indigo"},"2":{"color":"#a9bee8","border":"#a9bee8","var_name":"cold_blue"},"5":{"color":"#c4c4c4","border":"#b0b0b0","var_name":"grey"}}}
+                    )
+
+            )
+
+        [50] => stdClass Object
+            (
+                [id] => estado
+                [text] => Activo
+                [value] => {"index":1,"post_id":null,"changed_at":"2024-08-12T12:59:30.918Z"}
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Estado
+                        [settings_str] => {"done_colors":[1],"labels":{"1":"Activo","2":"Inactivo"},"labels_positions_v2":{"1":0,"2":1,"5":2},"labels_colors":{"1":{"color":"#00c875","border":"#00b461","var_name":"green-shadow"},"2":{"color":"#df2f4a","border":"#ce3048","var_name":"red-shadow"}}}
+                    )
+
+            )
+
+        [51] => stdClass Object
+            (
+                [id] => status
+                [text] => USA
+                [value] => {"index":1,"post_id":null,"changed_at":"2024-08-12T12:59:32.442Z"}
+                [type] => status
+                [column] => stdClass Object
+                    (
+                        [title] => Audiencia
+                        [settings_str] => {"done_colors":[1],"color_mapping":{"1":7,"2":108,"7":1,"108":154,"154":2},"labels":{"0":"Colombia","1":"USA","2":"Remoto"},"labels_positions_v2":{"0":0,"1":1,"2":2,"5":3},"labels_colors":{"0":{"color":"#fdab3d","border":"#e99729","var_name":"orange"},"1":{"color":"#579bfc","border":"#4387e8","var_name":"bright-blue"},"2":{"color":"#4eccc6","border":"#4eccc6","var_name":"australia"}}}
+                    )
+
+            )
+
+    )
+
+[updates] => Array
+    (
+        [0] => stdClass Object
+            (
+                [body] => Hola mi nombre es Ermis. Estudie en Cuba la carrera de ingeniería mecánica. Mi experiencia en este campo es más sobre la parte teórica porque me dedicaba a impartir clases en la universidad. Mi comida favorita es la cubana pero en especial soy fanático a los vegetales. Me gusta la tranquilidad y soy muy amigable. En belt busco desarrollar habilidades y conocer acerca de instalaciones ya que lo veo muy aceptable y de buen gusto. Nunca me han llamado por otro nombre que no sea el mio.
+                [id] => 3369548404
+                [creator] => stdClass Object
+                    (
+                        [name] => People Squad
+                        [id] => 16713187
+                    )
+
+            )
+
+    )
+
+)

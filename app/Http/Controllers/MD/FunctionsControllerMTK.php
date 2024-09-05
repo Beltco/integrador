@@ -19,7 +19,7 @@ class FunctionsControllerMTK extends Controller
     function insertBoardItems($items,$boardId,$reset=false)
     {
         
-        $methods = new MethodsController();
+        $methods = new MethodsControllerMD();
         $fn=new MondayController();
 
         if ($reset){
@@ -57,7 +57,7 @@ class FunctionsControllerMTK extends Controller
 
     function getBoardItems($boardId,$refresh)
     {
-        $monday=New MethodsController();
+        $monday=New MethodsControllerMD();
 
         $limit=200;
         $query="{boards (ids: $boardId){items_page (limit:$limit){cursor items{id name column_values {id value type column {settings_str}}}}}}";
@@ -79,7 +79,7 @@ class FunctionsControllerMTK extends Controller
 
     public function writeMaterials($refresh=false)
     {
-        $md=New MethodsController();
+        $md=New MethodsControllerMD();
 
         return $this->getBoardItems($md->boardMateriales(),$refresh);
     }

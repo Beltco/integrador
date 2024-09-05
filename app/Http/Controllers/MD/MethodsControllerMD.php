@@ -5,7 +5,7 @@ namespace App\Http\Controllers\MD;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MethodsController extends Controller
+class MethodsControllerMD extends Controller
 {
     private $token;
     private $apiUrl;

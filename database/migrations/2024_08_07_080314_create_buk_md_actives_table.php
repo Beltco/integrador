@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('marital_status',15);
             $table->string('address',100);
             $table->string('neigborhood',80);
-            $table->string('City',30);
+            $table->string('city',30);
             $table->string('mobile_number',15);
             $table->string('eps',25);
             $table->string('afp',25);

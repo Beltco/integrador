@@ -5,7 +5,7 @@ namespace App\Http\Controllers\BK;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MethodsController extends Controller
+class MethodsControllerBK extends Controller
 {
     private $token;
     private $apiUrl;
@@ -26,7 +26,6 @@ class MethodsController extends Controller
         curl_setopt($curl, CURLOPT_POST, $method); //false=GET true=POST
 
         $data=json_decode(curl_exec($curl),true);
-
         // Verificar si hubo algún error
         if (curl_errno($curl)) {
             echo 'Error en cURL: ' . curl_error($curl);

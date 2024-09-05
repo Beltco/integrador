@@ -1,0 +1,450 @@
+{
+"0":"La tebaida",
+"1":"USA",
+"2":"Calarca",
+"3":"Caicedonia",
+"4":"Bogota",
+"6":"Florida",
+"7":"Montenegro",
+"8":"NY",
+"9":"Texas",
+"10":"Circasia",
+"11":"Otro",
+"12":"Quimbaya",
+"13":"Barranquilla",
+"14":"Armenia",
+"15":"Cartago",
+"16":"Manizales",
+"17":"Salento"
+}
+{
+"0":"Casado/a",
+"1":"Soltero/a",
+"2":"Separado/a",
+"3":"Divorciado/a",
+"4":"Viudo/a",
+"5":"",
+"6":"Unión libre"
+}
+{
+"0":"Julio",
+"1":"Agosto",
+"2":"Marzo",
+"3":"Octubre",
+"4":"Noviembre",
+"6":"Septiembre",
+"7":"Abril",
+"8":"Enero",
+"12":"Diciembre",
+"14":"Febrero",
+"17":"Junio",
+"19":"Mayo"
+}
+{
+"0":"CEx_Client Experience",
+"1":"M_Maestro",
+"2":"CEx_PEx_Hybrid",
+"3":"PEx_Product Experience",
+"5":"",
+"7":"SOp_Smart Operations"
+}
+
+{
+"0":"Client Op+Services",
+"1":"Product Development",
+"2":"Supply Chain",
+"3":"Chief",
+"4":"Sustainability",
+"6":"Manufacturing",
+"7":"Field Operation",
+"8":"IT",
+"9":"Manufacturing Admon",
+"11":"People",
+"12":"Brand\u0026Co",
+"14":"Client Relations",
+"15":"Estimation",
+"18":"Maestro",
+"19":"Finance",
+"106":"Client Logistics",
+"108":"Design",
+"155":"Quality"
+}
+
+"labels":[
+{
+"name":"Manufacturing Operator",
+"id":1
+},
+{
+"name":"Assembly Officer",
+"id":2
+},
+{
+"name":"Client Relations Leader",
+"id":3
+},
+{
+"name":"Assembly Assistant",
+"id":4
+},
+{
+"name":"Project Leader",
+"id":5
+},
+{
+"name":"Subprocess Officer (Forging \u0026 Casting)",
+"id":6
+},
+{
+"name":"Installer",
+"id":7
+},
+{
+"name":"Internal Communications Coordinator",
+"id":8
+},
+{
+"name":"Administrative Manufacturing Engineer",
+"id":9
+},
+{
+"name":"Quality Integrator",
+"id":10
+},
+{
+"name":"Talent Acquisition Analyst",
+"id":11
+},
+{
+"name":"Brand\u0026Co Leader",
+"id":12
+},
+{
+"name":"Quality Leader",
+"id":13
+},
+{
+"name":"Quality Intern",
+"id":14
+},
+{
+"name":"Product Designer",
+"id":15
+},
+{
+"name":"Health and Safety Assistant",
+"id":16
+},
+{
+"name":"Manufacturing Supervisor",
+"id":17
+},
+{
+"name":"Chief Smart Operating Officer",
+"id":18
+},
+{
+"name":"Chief Executive Officer/Maestro",
+"id":19
+},
+{
+"name":"Health and Safety Specialist",
+"id":20
+},
+{
+"name":"Maintenance Coordinator",
+"id":21
+},
+{
+"name":"Chief Client Experience Officer",
+"id":22
+},
+{
+"name":"Design Architect",
+"id":23
+},
+{
+"name":"Procurement Coordinator",
+"id":24
+},
+{
+"name":"CEx Tribe Support",
+"id":25
+},
+{
+"name":"Prep\u0026Pack Officer",
+"id":26
+},
+{
+"name":"Cost Auditor",
+"id":27
+},
+{
+"name":"Client Project Logistics Coordinator",
+"id":28
+},
+{
+"name":"Procurement Assistant",
+"id":29
+},
+{
+"name":"People Experience Coordinator",
+"id":30
+},
+{
+"name":"Supply Chain Leader",
+"id":31
+},
+{
+"name":"Project Analyst",
+"id":32
+},
+{
+"name":"Row Warehouse Assistant",
+"id":33
+},
+{
+"name":"Modeling and Finishing Specialist",
+"id":34
+},
+{
+"name":"Finishing Officer",
+"id":35
+},
+{
+"name":"Maintenance Assistant",
+"id":36
+},
+{
+"name":"Project Success Manager",
+"id":37
+},
+{
+"name":"Estimation Leader",
+"id":38
+},
+{
+"name":"Machining Operator",
+"id":39
+},
+{
+"name":"Supply Chain Support",
+"id":40
+},
+{
+"name":"Welder",
+"id":41
+},
+{
+"name":"Product Developer",
+"id":42
+},
+{
+"name":"Executive Administrative Assistant",
+"id":43
+},
+{
+"name":"Estimator",
+"id":44
+},
+{
+"name":"Chief Sustainability Officer",
+"id":45
+},
+{
+"name":"Business Developer Coordinator",
+"id":46
+},
+{
+"name":"Manufacturing Leader",
+"id":47
+},
+{
+"name":"Finance Leader",
+"id":48
+},
+{
+"name":"Assembly Coordinator",
+"id":49
+},
+{
+"name":"Bookkeeper",
+"id":50
+},
+{
+"name":"Finishing and Packing Coordinator",
+"id":51
+},
+{
+"name":"Dream Design Consultant",
+"id":52
+},
+{
+"name":"IT Leader",
+"id":53
+},
+{
+"name":"Installation Helper",
+"id":54
+},
+{
+"name":"IT Analyst",
+"id":55
+},
+{
+"name":"Developer",
+"id":56
+},
+{
+"name":"Subprocess Coordinator",
+"id":57
+},
+{
+"name":"Accountant \u0026 Payroll Intern",
+"id":58
+},
+{
+"name":"People Leader",
+"id":59
+},
+{
+"name":"People Relations Assistant",
+"id":60
+},
+{
+"name":"Estimation Assistant",
+"id":61
+},
+{
+"name":"Brand Creative",
+"id":62
+},
+{
+"name":"Adminstrative Assistant",
+"id":63
+},
+{
+"name":"Central Warehouse Assistant",
+"id":64
+},
+{
+"name":"Brand\u0026Co Intern",
+"id":65
+},
+{
+"name":"Estimation Intern",
+"id":66
+},
+{
+"name":"Product Development Leader",
+"id":67
+},
+{
+"name":"Leader Design",
+"id":68
+},
+{
+"name":"Design Intern",
+"id":69
+},
+{
+"name":"Manufacturing Operations Engineer",
+"id":70
+},
+{
+"name":"Brand Assurance",
+"id":71
+},
+{
+"name":"Supply Chain Intern",
+"id":72
+},
+{
+"name":"Manufacturing Intern",
+"id":73
+},
+{
+"id":74,
+"name":"ACCOUNTANT \u0026 PAYROLL ANALYST)"
+},
+{
+"id":75,
+"name":"Accountant \u0026 Payroll Specialyst"
+},
+{
+"id":76,
+"name":"Accountant \u0026 PayrolL Analyst"
+},
+{
+"id":77,
+"name":"Product Development Intern"
+},
+{
+"id":78,
+"name":"Field Operations Leader"
+},
+{
+"id":79,
+"name":"Manufacturing Adiministrative coordinator"
+},
+{
+"id":80,
+"name":"Brand designer"
+},
+{
+"id":81,
+"name":"People Assistant"
+},
+{
+"id":82,
+"name":"Field Operations Coordinator"
+},
+{
+"id":83,
+"name":"Procurement Intern"
+},
+{
+"id":84,
+"name":"warehou"
+},
+{
+"id":85,
+"name":"Warehouse Coordinator"
+},
+{
+"id":86,
+"name":"Warehouse Coordinator"
+},
+{
+"id":87,
+"name":"People Intern"
+},
+{
+"id":88,
+"name":"Warehouse Assistant"
+},
+{
+"id":89,
+"name":"ASSEMBLY COORDINATOR ASSISTANT"
+},
+{
+"id":90,
+"name":"Project Leader For Standarization of Finishes and Patina"
+},
+{
+"id":91,
+"name":"Operations Leader"
+},
+{
+"id":92,
+"name":"Sustainability Administrative Assistant"
+},
+{
+"id":93,
+"name":"IT INTERN"
+},
+{
+"id":94,
+"name":"Field Operations Intern"
+}
+]

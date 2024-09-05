@@ -1,0 +1,220 @@
+Array
+(
+    [person_id] => 598
+    [id] => 666
+    [picture_url] => https://buk-cluster-enterprise-colombia.s3.amazonaws.com/bfaaae2d-5a6a-4900-8c1b-c993e12b4ccb/person/picture_url/598/593d33cd-2e39-451e-815e-6992c3fcb631-Laura_Sophia_Garc%C3%ADa.jpg
+    [first_name] => Laura Sophia
+    [surname] => García
+    [second_surname] => Naranjo
+    [full_name] => Laura Sophia García Naranjo
+    [document_type] => cc
+    [document_number] => 1.090.272.020
+    [rut] => 1.090.272.020
+    [code_cheet] => F1
+    [email] => 
+    [personal_email] => sophiagarcia5678@gmail.com
+    [address] => limonar 3 etapa mz 1 cs 6
+    [district] => La Tebaida
+    [location_id] => 1364
+    [region] => Quindío
+    [office_phone] => 
+    [phone] => 3135154640
+    [gender] => F
+    [birthday] => 2003-10-10
+    [university] => 
+    [degree] => 
+    [active_since] => 2024-07-26
+    [status] => activo
+    [payment_method] => Transferencia Bancaria
+    [bank] => Bancolombia
+    [account_type] => Ahorro
+    [account_number] => 03135154640
+    [payment_document_type] => na
+    [payment_document_number] => 
+    [nationality] => Colombiana
+    [country_code] => CO
+    [civil_status] => Soltero
+    [progressive_vacations_start] => 
+    [private_role] => 
+    [code_sheet] => F1
+    [health_company] => nueva_eps
+    [pension_regime] => afp
+    [pension_fund] => 
+    [afc] => 
+    [retired] => 
+    [retirement_regime] => 
+    [custom_attributes] => Array
+        (
+            [1. Hoja de vida actualizada] => 
+            [Codigo Interno del Colaborador] => 
+            [2. Documento de identidad (Cédula - ID)] => Array
+                (
+                    [url] => 
+                )
+
+            [3. Copia de la libreta militar o certificado (en caso de tenerlo)] => 
+            [4. Copia del pasaporte (en caso de tenerlo)] => 
+            [5. Copia de la VISA (Si tiene)] => 
+            [6. Copia de la licencia de conducción (Si la tiene)] => 
+            [7. Copia de la tarjeta profesional (Si la tiene)] => 
+            [8. Diploma Bachiller (Colegio)] => 
+            [9. Diploma de pregrado/universidad (si tiene estudios superiores)] => 
+            [10. Diploma especialización (Si tiene)] => 
+            [11. Diploma maestria (si tiene)] => 
+            [12. Certificados laborales 1] => 
+            [13. Certificados laborales 2] => 
+            [14. Certificados laborales 3] => 
+            [15. Certificado de afiliación a EPS] => Array
+                (
+                    [url] => 
+                )
+
+            [16. Certificado de afiliación a fondo de pensión] => 
+            [18. Certificado Bancario (preferiblemente Bancolombia)] => Array
+                (
+                    [url] => 
+                )
+
+            [19. ¿Va a afiliar beneficiarios a EPS o caja de compensación?] => 
+            [20. Por favor carga una foto] => 
+            [21. Ciudad de expedición de tu cédula] => 
+            [22. Mes de ingreso] => Julio
+            [Ciudad de labores] => La Tebaida
+            [23. Forma de contratación] => SENA
+            [24. Ubicación] => Colombia
+            [25. Por favor escribir la carrera (técnico, tecnología, profesional) que estudiaste] => Tecnólogo en dibujo y modelado arquitectónico y de ingeniería 
+            [26. ¿Tienes hijos?] => No
+            [27. RH - Tipo de sangre] => O+
+            [28.1 Contacto de emergencia (número de teléfono)] => 3218625524
+            [28. Contacto de emergencia (Nombre, parentesco)] => Alexandra Naranjo (Madre)
+            [29. Talla de camisa / polo / camiseta] => S
+            [30. Talla de pantalón (jean)] => 8
+            [31. Talla de botas] => 38
+            [32. ¡Preséntate al equipo! Cuéntanos un poco sobre ti: ¿Qué estudiaste? ¿Qué experiencia tienes? ¿Cuál es tu comida favorita? ¿Cuáles son tus hobbies? ¿Qué esperas lograr en BELT? ¿Cómo te gusta que te digan?] => mucho gusto Mi nombre es Sophia, Estudie un Tecnólogo en Dibujo y Modelado Arquitectónico y de Ingeniería en el Sena, Por el momento no cuento con ninguna experiencia laboral pero cuento con los conocimientos básicos que aprendí en mi etapa electiva, Mi comida favorita es la carne, Mis hobbies son escuchar música y hacer deporte, Lo que yo espero lograr en BELT es abrir mas mis conocimientos y aportar ideas
+            [Nombres Dependiente] => 
+            [Primer Apellido Dependiente] => 
+            [Segundo Apellido Dependiente] => 
+            [Tipo de Documento Dependiente] => 
+            [Número de Documento Dependiente] => 
+            [Apoyos Económicos Educativos] => 
+            [Auxilio de Cesantía Régimen Tradicional] => 
+            [Ingreso laboral promedio de los últimos seis meses anteriores] => 
+            [Certificado de EPS de los padres (Solo si va a afiliar beneficiarios)] => 
+            [Codigo de Dotación] => 
+            [Cónyuge: Copia del documento de identidad (Solo si va a afiliar beneficiarios)] => 
+            [Copia del documento de identidad de los padres (Solo si va a afiliar beneficiarios)] => 
+            [Grupo familiar] => 
+            [Hijos menores de 18 años: Registro civil o tarjeta de identidad (Solo si va a afiliar beneficiarios)] => 
+            [Padres siempre y cuando no estén cotizando a EPS como independientes y tengan 65 años: Registro civil del cotizante (Solo si va a afiliar beneficiarios)] => 
+        )
+
+    [active_until] => 
+    [termination_reason] => 
+    [current_job] => Array
+        (
+            [periodicity] => mensual
+            [frequency] => mensual
+            [working_schedule_type] => 
+            [zone_assignment] => 
+            [union] => 
+            [project] => 
+            [days] => Array
+                (
+                    [0] => l
+                    [1] => m
+                    [2] => w
+                    [3] => j
+                    [4] => v
+                )
+
+            [previous_job_id] => 
+            [id] => 2558
+            [company_id] => 1
+            [start_date] => 2024-07-26
+            [type_of_contract] => SENA Productiva
+            [end_of_contract] => 2025-01-22
+            [active_until] => 
+            [regular_hours] => 46
+            [risk_type] => alto
+            [end_date] => 
+            [contract_finishing_date_1] => 2025-01-22
+            [contract_finishing_date_2] => 
+            [cost_center] => PE002
+            [area_id] => 24
+            [role_id] => 93
+            [leader_id] => 395
+            [retention_taxes] => procedimiento_default
+            [retention_taxes_type] => automatic_retention_rate
+            [retention_taxes_rate] => 0
+            [wage_type] => variable
+            [boss] => Array
+                (
+                    [id] => 395
+                    [rut] => 1.144.052.100
+                    [document_type] => cc
+                    [document_number] => 1.144.052.100
+                )
+
+            [currency_code] => COP
+            [wage] => 975000
+            [role] => Array
+                (
+                    [id] => 93
+                    [code] => pasante_de_diseno_design_intern
+                    [name] => Pasante de diseño (Design Intern)
+                    [description] => 
+                    [requirements] => 
+                    [area_ids] => Array
+                        (
+                            [0] => 24
+                        )
+
+                    [role_family] => 
+                )
+
+            [custom_attributes] => Array
+                (
+                    [Actividades a desarrollar CPS - OBRA O LABOR] => 
+                    [Bono fijo OP] => 
+                    [Bono flex Capacitación] => 
+                    [Bono Flex Comunicaciones] => 
+                    [Bono Flex Representación] => 
+                    [Bono Flex Transporte] => 
+                    [Bono Flex Vestuario] => 
+                    [Bono variable OP] => 
+                    [Concepto de retiro de cesantías] => 
+                    [Fecha cambio de cargo] => 
+                    [Fecha de aplicación] => 
+                    [Fecha presentación de la renuncia] => 
+                    [Media jornada laboral] => 
+                    [Objeto CPS-OBRA O LABOR] => 
+                    [Plan Contable] => 
+                    [Prorroga-Transformación fecha inicial] => 
+                    [Salario Extranjeros] => 
+                    [Salario Temporales] => 
+                    [Valor consignado cesantías] => 
+                )
+
+        )
+
+    [family_responsabilities] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 570
+                    [family_allowance_section] => D
+                    [simple_family_responsability] => 0
+                    [maternity_family_responsability] => 0
+                    [invalid_family_responsability] => 0
+                    [start_date] => 2024-07-01
+                    [end_date] => 
+                    [responsability_details] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+)
+areaId:24
