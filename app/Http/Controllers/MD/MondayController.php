@@ -15,7 +15,7 @@ class MondayController extends Controller
     {
         $monday=New MethodsControllerMD();
 
-        $query="{boards (ids: $id){name columns{id title type}}}";
+        $query="{boards (ids: $id){name columns{id title type settings_str}}}";
         $json=json_decode($monday->apiCallMD($query));
         $name=$json->data->boards[0]->name;
         $columns=$json->data->boards[0]->columns;

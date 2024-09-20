@@ -65,17 +65,18 @@ class CreateActiveController extends Controller
           break;
         case 'dropdown':
           $query='mutation{
-            change_simple_column_value(
-              board_id:'.$boardId.',
-              item_id:'.$itemId.',
-              column_id: "'.$columnId.'",
-              value: "'.$value.'",
-              create_labels_if_missing: true
-            ) 
-            {
-              id
-            }
-          }';
+          change_simple_column_value(
+            board_id:'.$boardId.',
+            item_id:'.$itemId.',
+            column_id: "'.$columnId.'",
+            value: "'.$value.'",
+            create_labels_if_missing: true
+          ) 
+          {
+            id
+          }
+        }';
+//die("<pre>$boardId,$itemId,$columnId,$type,$value\n$query"); ////////////////////////////////////////      
           break;
         case 'file':
           $query='mutation($file:File!){
@@ -130,6 +131,18 @@ echo ("<pre>$query\n");//die("value:*$value*");  ///////////////////////////////
       return json_decode($monday->apiCallMD($query));      
     }
 
+    public function indexToLabel($label,$json)
+    {
+      $labels=json_decode($json)->labels;
+
+      foreach ($labels as $index) {
+        if ($index->name==$label)
+          return $index->id;
+      }
+
+      return false;
+    }
+
     public function sincro(Request $request)
     {
         $monday=New MethodsControllerMD();
@@ -137,9 +150,11 @@ echo ("<pre>$query\n");//die("value:*$value*");  ///////////////////////////////
         $documents=$request->input('opciones');
 
         $boardCols=$mc->getBoardColumns(BukController::$boardActives)['columns'];
-
-        foreach ($boardCols as $column) 
+//echo "<pre>";print_r($boardCols); exit;  //////////////////////        
+        foreach ($boardCols as $column){ 
           $type[$column->id]=$column->type;
+          $values[$column->id]=$column->settings_str;
+        }
 
         $tribus=array(22=>3);
         $escuadrones=array(24=>108);
@@ -248,9 +263,11 @@ $itemId=7300280050; ////////////////////////////////////////////////////
               'texto2'=>$employee['custom_attributes']['28. Contacto de emergencia (Nombre, parentesco)'], 
               'tel_fono'=>($employee['country_code']=='CO'?'+57':'').str_replace('+57','',$employee['custom_attributes']['28.1 Contacto de emergencia (número de teléfono)'])." ".$employee['country_code'], 
               'salario9'=>$employee['current_job']['wage'], 
-              'men__desplegable'=>$employee['custom_attributes']['29. Talla de camisa / polo / camiseta'], */
-              'dup__of_talla_polo_camisa'=>$employee['custom_attributes']['30. Talla de pantalón (jean)'], 
-
+              'men__desplegable'=>$employee['custom_attributes']['29. Talla de camisa / polo / camiseta'], 
+              'dup__of_talla_polo_camisa'=>$this->indexToLabel($employee['custom_attributes']['30. Talla de pantalón (jean)'], $values['dup__of_talla_polo_camisa']), 
+              'dup__of_talla_pantal_n'=>$this->indexToLabel($employee['custom_attributes']['31. Talla de botas'], $values['dup__of_talla_pantal_n']), 
+              'estado_10'=>$employee['custom_attributes']['Codigo de Dotación'], */
+              'estado'=>1
             );
 
             foreach ($columns as $column=>$label){
