@@ -16,7 +16,7 @@ class Database extends Controller
             $table->save();
         } catch (\Exception $exception) {
             $message = $exception->getMessage();
-
+            print_r($data);
             die("$message\n<br>* DATA *\n<br>$key => $value");
         }
 

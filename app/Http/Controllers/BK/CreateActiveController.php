@@ -7,6 +7,7 @@ use App\Http\Controllers\MD\MethodsControllerMD;
 use App\Http\Controllers\MD\MondayController;
 use App\Models\BK\BukEmployee;
 use App\Models\BK\BukMdActive;
+use App\Http\Controllers\Database;
 use App\Models\MD\Column;
 use Illuminate\Http\Request;
 
@@ -127,7 +128,7 @@ class CreateActiveController extends Controller
           }';
           break;
       }
-echo ("<pre>$query\n");//die("value:*$value*");  /////////////////////////////////////////////
+//echo ("<pre>$query\n");//die("value:*$value*");  /////////////////////////////////////////////
       return json_decode($monday->apiCallMD($query));      
     }
 
@@ -147,6 +148,7 @@ echo ("<pre>$query\n");//die("value:*$value*");  ///////////////////////////////
     {
         $monday=New MethodsControllerMD();
         $mc=New MondayController();
+
         $documents=$request->input('opciones');
 
         $boardCols=$mc->getBoardColumns(BukController::$boardActives)['columns'];
@@ -156,8 +158,40 @@ echo ("<pre>$query\n");//die("value:*$value*");  ///////////////////////////////
           $values[$column->id]=$column->settings_str;
         }
 
-        $tribus=array(22=>3);
-        $escuadrones=array(24=>108);
+        $tribu_desc=array(
+          22=>'Product Experience',
+          13=>'Client Experience',
+          18=>'Maestro',
+          28=>'Smart Operation'
+        );
+
+        $tribus=array(
+          22=>3, // PEx
+          13=>0, // CEx
+          18=>1, // Maestro
+          28=>7, // SOp
+        );
+        
+        $escuadrones=array(  // Buk=>Monday
+          24=>108,  // Desing
+          14=>14,  // Cliente relations
+          15=>12,  // Brand
+          16=>0, // client operarations and services
+          17=>7, // Field operations
+          23=>15, //  Estimation
+          25=>1, // Product development
+          26=>9, // Manufacturing Admon
+          27=>6, // Manufacturing
+          29=>19, // Finance
+          30=>155, // Quality
+          31=>2, // Supply chain
+          32=>11, // People
+          33=>106,  // Client Logistics
+          34=>8, // IT
+          19=>18, // Maestro
+          20=>3, // Chief
+          21=>4, // Sustainability
+        );
         $meses=array(0,8,14,2,7,19,17,0,1,6,3,4,12);
         $ubicaciones=array('Colombia'=>0,'USA'=>1);
         $generos=array('M'=>0,'F'=>1);
@@ -186,6 +220,7 @@ echo ("<pre>$query\n");//die("value:*$value*");  ///////////////////////////////
         {
             $buk=New MethodsControllerBK();
             $employee=$buk->apiCallBK("employees/$document_number")['data'];
+//echo "<pre>";print_r($employee);die("\ndocument_number:$document_number");            
             $id=$employee['id'];
             $planes=$buk->apiCallBK("employees/$id/plans")['data'];
             foreach ($planes as $plan){
@@ -216,15 +251,14 @@ echo ("<pre>$query\n");//die("value:*$value*");  ///////////////////////////////
             else
               $civil=$civiles[$civil];
 
-/*
             $query='mutation{
               create_item(
                 board_id: '.BukController::$boardActives.',
                 group_id: "'.BukController::$activesNuevos.'",
                 item_name: "'.$employee['full_name'].'"){ id }}';
-            $itemId=json_decode($monday->apiCallMD($query))->data->create_item->id;
-*/          
-$itemId=7300280050; ////////////////////////////////////////////////////   
+            $itemId=json_decode($monday->apiCallMD($query))->data->create_item->id;      
+
+//$itemId=7300280050; ////////////////////////////////////////////////////   
 
             $query="mutation { clear_item_updates (item_id: $itemId) {id} }";
             $j=json_decode($monday->apiCallMD($query));
@@ -233,13 +267,13 @@ $itemId=7300280050; ////////////////////////////////////////////////////
               { id }
             }';
             $j=json_decode($monday->apiCallMD($query));
-//echo "<pre>"; print_r($j); die("query:$query"); ///////////////////////////////////////////            
+echo "<pre>"; print_r($j); die("query:$query"); ///////////////////////////////////////////            
 
             $columns=array(
-/*              'c_dula'=>'document_number',
+              'c_dula'=>'document_number',
               'texto4'=>$employee['custom_attributes']['21. Ciudad de expedición de tu cédula'],
               'archivo'=>'picture_url',
-              'tribu'=>$tribus[$tribuId], 
+//              'tribu'=>$tribus[$tribuId], 
               'squad'=>$escuadrones[$escuadronId], 
               'dup__of_cargo3'=>$roleName, 
               'fecha_de_ingreso'=>$employee['current_job']['start_date'],  
@@ -266,26 +300,42 @@ $itemId=7300280050; ////////////////////////////////////////////////////
               'men__desplegable'=>$employee['custom_attributes']['29. Talla de camisa / polo / camiseta'], 
               'dup__of_talla_polo_camisa'=>$this->indexToLabel($employee['custom_attributes']['30. Talla de pantalón (jean)'], $values['dup__of_talla_polo_camisa']), 
               'dup__of_talla_pantal_n'=>$this->indexToLabel($employee['custom_attributes']['31. Talla de botas'], $values['dup__of_talla_pantal_n']), 
-              'estado_10'=>$employee['custom_attributes']['Codigo de Dotación'], */
-              'estado'=>1
+              'estado_10'=>$employee['custom_attributes']['Codigo de Dotación'], 
+//              'estado'=>1,
+              'texto__1'=>$id,
+              'texto4__1'=>$employee['custom_attributes']['Codigo Interno del Colaborador']
             );
-
             foreach ($columns as $column=>$label){
               if (isset($employee[$label]))
                 $valor=$employee[$label];
               else
                 $valor=$label;
               $data=$this->addColumn(BukController::$boardActives,$itemId,$column,$type[$column],$valor,$monday);
-echo "<pre>";print_r($data);die("columnId:$column");  ///////////////////
+//echo "<pre>";print_r($data);die("columnId:$column");  ///////////////////
             }
+//echo "<pre>";print_r($data);die("document_number:$document_number");  ///////////////////
             unset($columns);
 
-
+            $field['document_number']=$document_number;
+            if (strlen(trim($field['document_number']))>0)
+            {
+              $field['id']=$itemId;
+              $field['full_name']=$employee['full_name'];
+              $field['city']=$employee['district'];
+              $field['mobile_number']=$employee['phone'];
+              $field['eps']=(isset($fondos[$eps])?$fondos[$eps]:$eps);
+              $field['afp']=(isset($fondos[$afp])?$fondos[$afp]:$afp);
+              $field['status']=1;
+              $field['marital_status']=$civil;
+              $field['address']=$employee['address'];
+              $field['neigborhood']='';
+              $field['tribu']=$tribu_desc[$tribuId];
+              Database::insert(New BukMdActive,$field);
+            }
         }
 
 
- //       return view('BK.sincro',['employees'=>$employees]);
-          
+        return redirect()->route('sincro');          
     }
 
     public function index()

@@ -10,8 +10,6 @@ use App\Models\BK\BukEmployee;
 use App\Models\BK\BukMdActive;
 use Illuminate\Http\Request;
 use Mockery\Generator\Method;
-use Illuminate\Support\Facades\Http;
-use GuzzleHttp\Promise\Utils;
 
 class BukController extends Controller
 {
@@ -26,10 +24,10 @@ class BukController extends Controller
         ini_set('max_execution_time', 500); //3 minutes
         set_time_limit(500);
         
+        BukEmployee::query()->delete();
 
         if ($id){
-            $employees[]=$bk->apiCallBK("employees/$id")['data'];
-        }
+            $employees=$bk->apiCallBK("employees/$id");}
         else{
             $params=array();
             $pag=1;
@@ -40,10 +38,8 @@ class BukController extends Controller
                 $pag++;
                 $params['page']=$pag;
           }while ($buk['pagination']['next']);
-//          BukEmployee::query()->delete();
-        }
-//echo "<pre>";print_r($employees);die("id:$id");  ///////////////////////////////
-        foreach ($employees as $employee){
+
+          foreach ($employees as $employee){
             $field['id']=$employee['id'];
             $field['full_name']=$employee['full_name'];
             $field['document_number']=str_replace(".","",$employee['document_number']);
@@ -54,12 +50,14 @@ class BukController extends Controller
             $field['status']=$employee['status'];
             $field['marital_status']=$employee['civil_status'];
             $field['address']=$employee['address'];
+
             if (BukEmployee::where('id', $employee['id'])->count()==0){
                 Database::insert(New BukEmployee,$field);
+                //echo $field['document_number']."|".$field['full_name']." creado<br>\n";
 
             }
           }         
-        
+        }
     }
 
     function insertGroupMD($groupId)
@@ -67,7 +65,7 @@ class BukController extends Controller
         $md=New MondayController();
 
         $actives=$md->getBoardAllInfo(self::$boardActives,$groupId);
-        $group=$actives['groups'][$groupId];
+        $group=$actives['groups'][$group->id];
 
         foreach ($group['items'] as $id=>$item) 
         {
@@ -102,13 +100,71 @@ class BukController extends Controller
 
         foreach ($groups as $group)
         {
-            $url = route('insertGroup', ['id' => $group->id]);
-            echo "<pre>Procesando $group->title\n";
-            $promises[] = Http::async()->get($url);            
+            callURL($group->id);
+            $group=$actives['groups'][$group->id];
 
+            foreach ($group['items'] as $id=>$item) 
+            {
+                $field['document_number']=$item['c_dula']['value'];
+                if (strlen(trim($field['document_number']))>0)
+                {
+                  $field['id']=$id;
+                  $field['full_name']=$item['elemento']['value'];
+                  $field['city']=$item['estado_1']['value'];
+                  $field['mobile_number']=$item['tel_fono9']['value'];
+                  $field['eps']=$item['texto']['value'];
+                  $field['afp']=$item['texto6']['value'];
+                  $st=$item['estado']['value'];
+                  $field['status']=(strlen(trim($st))==0?"Activo":$st);
+                  $field['marital_status']=$item['dup__of_g_nero']['value'];
+                  $field['address']=$item['texto05']['value'];
+                  $field['neigborhood']=$item['texto49']['value'];
+                  $field['tribu']=$group['title'];
+                  Database::insert(New BukMdActive,$field);
+                }
+                //echo $field['document_number']."|".$field['full_name']." creado<br>\n";
+            }
         }
-        $responses = Utils::settle($promises)->wait();
           
     }
 
+
+    function getActivesMD_ori($reset=true)
+    {
+        $md=New MondayController();
+
+        if ($reset) BukMdActive::query()->delete();
+
+        $m=New MondayController(); 
+        $groups=$m->getGroups(self::$boardActives);  
+
+        foreach ($groups as $group)
+        {
+            $actives=$md->getBoardAllInfo(self::$boardActives,$group->id);
+            $group=$actives['groups'][$group->id];
+
+            foreach ($group['items'] as $id=>$item) 
+            {
+                $field['document_number']=$item['c_dula']['value'];
+                if (strlen(trim($field['document_number']))>0)
+                {
+                  $field['id']=$id;
+                  $field['full_name']=$item['elemento']['value'];
+                  $field['city']=$item['estado_1']['value'];
+                  $field['mobile_number']=$item['tel_fono9']['value'];
+                  $field['eps']=$item['texto']['value'];
+                  $field['afp']=$item['texto6']['value'];
+                  $st=$item['estado']['value'];
+                  $field['status']=(strlen(trim($st))==0?"Activo":$st);
+                  $field['marital_status']=$item['dup__of_g_nero']['value'];
+                  $field['address']=$item['texto05']['value'];
+                  $field['neigborhood']=$item['texto49']['value'];
+                  $field['tribu']=$group['title'];
+                  Database::insert(New BukMdActive,$field);
+                }
+                //echo $field['document_number']."|".$field['full_name']." creado<br>\n";
+            }
+        }
+          
+    }
 }

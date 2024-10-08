@@ -1,6 +1,6 @@
 <body>
     <header>
-
+        <x-BK.header/>
     </header>
     <div class="container"> 
     {{$slot}}

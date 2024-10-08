@@ -47,12 +47,11 @@ Route::group(['prefix'=>'bk'],function(){
         Route::get('/employees/{id}',"getEmployees");
         Route::get('/employees',"getEmployees");
         Route::get('/actives',"getActivesMD");
-        Route::get('/insert-group/{id}',"insertGroupMD")->name('insertGroup');
     });
     Route::controller(CreateActiveController::class)->group(function(){
         Route::get('/',"index");
-        Route::get('/artistars',"listUnmatch")->name('sincro');
-        Route::post('/artistars','sincro')->name('createMD');
+        Route::get('/artistars',"listUnmatch");
+        Route::post('/artistars','sincro')->name('sincro');
     });
 });
 
