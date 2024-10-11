@@ -45,8 +45,8 @@ Route::group(['prefix'=>'md'],function(){
 Route::group(['prefix'=>'bk'],function(){
     Route::controller(BukController::class)->group(function(){
         Route::get('/employees/{id}',"getEmployees");
-        Route::get('/employees',"getEmployees");
-        Route::get('/actives',"getActivesMD");
+        Route::get('/employees',"getEmployees")->name('employees');
+        Route::get('/actives',"getActivesMD")->name('actives');
         Route::get('/insert-group/{id}',"insertGroupMD")->name('insertGroup');
     });
     Route::controller(CreateActiveController::class)->group(function(){

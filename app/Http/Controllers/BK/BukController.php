@@ -59,7 +59,8 @@ class BukController extends Controller
 
             }
           }         
-        
+          return redirect()->route('sincro');          
+
     }
 
     function insertGroupMD($groupId)
@@ -103,12 +104,14 @@ class BukController extends Controller
         foreach ($groups as $group)
         {
             $url = route('insertGroup', ['id' => $group->id]);
-            echo "<pre>Procesando $group->title\n";
+            //echo "<pre>Procesando $group->title\n";
             $promises[] = Http::async()->get($url);            
 
         }
         $responses = Utils::settle($promises)->wait();
-          
+
+        $msg="La carga de Monday>Activos a la base de datos ha sido exitosa...";
+        return view('BK.land')->with('url', route('sincro'))->with('msg',$msg);          
     }
 
 }

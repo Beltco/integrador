@@ -149,8 +149,9 @@ class CreateActiveController extends Controller
         $monday=New MethodsControllerMD();
         $mc=New MondayController();
 
-        $documents=$request->input('opciones');
-
+        if (!($documents=$request->input('opciones')))
+           return redirect()->route('sincro');    
+          
         $boardCols=$mc->getBoardColumns(BukController::$boardActives)['columns'];
 //echo "<pre>";print_r($boardCols); exit;  //////////////////////        
         foreach ($boardCols as $column){ 
@@ -267,13 +268,13 @@ class CreateActiveController extends Controller
               { id }
             }';
             $j=json_decode($monday->apiCallMD($query));
-echo "<pre>"; print_r($j); die("query:$query"); ///////////////////////////////////////////            
+//echo "<pre>"; print_r($j); die("query:$query"); ///////////////////////////////////////////            
 
             $columns=array(
               'c_dula'=>'document_number',
               'texto4'=>$employee['custom_attributes']['21. Ciudad de expedición de tu cédula'],
               'archivo'=>'picture_url',
-//              'tribu'=>$tribus[$tribuId], 
+              'tribu'=>$tribus[$tribuId], 
               'squad'=>$escuadrones[$escuadronId], 
               'dup__of_cargo3'=>$roleName, 
               'fecha_de_ingreso'=>$employee['current_job']['start_date'],  
@@ -301,7 +302,7 @@ echo "<pre>"; print_r($j); die("query:$query"); ////////////////////////////////
               'dup__of_talla_polo_camisa'=>$this->indexToLabel($employee['custom_attributes']['30. Talla de pantalón (jean)'], $values['dup__of_talla_polo_camisa']), 
               'dup__of_talla_pantal_n'=>$this->indexToLabel($employee['custom_attributes']['31. Talla de botas'], $values['dup__of_talla_pantal_n']), 
               'estado_10'=>$employee['custom_attributes']['Codigo de Dotación'], 
-//              'estado'=>1,
+              'estado'=>1,
               'texto__1'=>$id,
               'texto4__1'=>$employee['custom_attributes']['Codigo Interno del Colaborador']
             );

@@ -13,12 +13,42 @@
         #submitBtn{
             cursor: pointer;
             margin-bottom: 1rem;
+            background-color: #007bff !important;
+        }
+        #submitBtn:hover {
+            background-color: #1d2b3a !important; 
+        }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 9999;
+        }
+        #overlay-content {
+            color: white;
+            font-size: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center !important;
+        }
+        .icons{
+            width: 50px;
         }
     </style>   
 </x-BK.head>
 
 <x-BK.body>
-
+    <div id="overlay">
+        <div id="overlay-content">
+            Procesando<img style="margin: 0 auto;" src="{{URL::asset('images/favicon_90.gif')}}">Por favor espere... 
+        </div>
+    </div>
 <div class="container centered-form">
     <div class="col-md-6">
         <h2 class="text-center">Crear nuevos de BUK en Monday>Actives</h2>
@@ -38,17 +68,17 @@
         </form>
         <div class="container mt-4">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <div class="text-center">
-                        <a href="https://integrador.beltforge.com/bk/actives">
-                            <img src="{{URL::asset('images/icon-monday.png')}}" class="img-fluid">
+                        <a href="{{route('employees')}}" onclick="document.getElementById('overlay').style.display='block'">
+                            <img class="icons" src="{{URL::asset('images/icon-buk.png')}}">
                         </a>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <div class="text-center">
-                        <a href="https://integrador.beltforge.com/bk/employees">
-                            <img src="{{URL::asset('images/icon-buk.png')}}">
+                        <a href="{{route('actives')}}">
+                            <img class="icons" src="{{URL::asset('images/icon-monday.png')}}" onclick="document.getElementById('overlay').style.display='block'">
                         </a>
                     </div>
                 </div>
@@ -56,5 +86,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Obtener el botón y la div de overlay
+    const submitBtn = document.getElementById('submitBtn');
+    const overlay = document.getElementById('overlay');
+
+    // Añadir evento de clic al botón
+    submitBtn.addEventListener('click', function() {
+        // Mostrar la div de overlay cuando se haga clic
+        overlay.style.display = 'block';
+        
+        // Aquí puedes añadir lógica para procesar tu formulario si es necesario.
+    });
+</script>
 
 </x-BK.body>
