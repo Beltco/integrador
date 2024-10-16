@@ -43,14 +43,15 @@ class BukController extends Controller
 //          BukEmployee::query()->delete();
         }
 //echo "<pre>";print_r($employees);die("id:$id");  ///////////////////////////////
-        foreach ($employees as $employee){
+        foreach ($employees as $employee)
+        try{
             $field['id']=$employee['id'];
             $field['full_name']=$employee['full_name'];
             $field['document_number']=str_replace(".","",$employee['document_number']);
             $field['city']=$employee['district'];
             $field['mobile_number']=$employee['phone'];
-            $field['eps']=$employee['health_company'];
-            $field['afp']=$employee['pension_regime'];
+            $field['eps']=data_get($employee,'health_company','');
+            $field['afp']=data_get($employee,'pension_regime','');
             $field['status']=$employee['status'];
             $field['marital_status']=$employee['civil_status'];
             $field['address']=$employee['address'];
@@ -58,7 +59,12 @@ class BukController extends Controller
                 Database::insert(New BukEmployee,$field);
 
             }
-          }         
+          }
+          catch (\Exception $e) {
+            echo "ERROR getEmployees(): ".$e->getMessage();
+            die("\nReportar a Soporte IT");
+//            echo("<pre>");print_r($employee);die(); //////////////////////////////////
+        }         
           return redirect()->route('sincro');          
 
     }
@@ -91,6 +97,7 @@ class BukController extends Controller
             }
             //echo $field['document_number']."|".$field['full_name']." creado<br>\n";
         }
+
 
     }
 
