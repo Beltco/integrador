@@ -5,12 +5,14 @@ namespace App\Http\Controllers\MD;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Controller;
-use App\Models\MD\Board;
 use Illuminate\Http\Request;
+use App\Http\Controllers\MD\MethodsController;
+use App\Models\MD\Column;
 use App\Models\MD\MdAdminMember;
 use App\Models\MD\MdAdminOwner;
 use App\Models\MD\MdAdminUser;
-use Illuminate\Support\Facades\DB;
+use Exception;
+use stdClass;
 
 class MondayController extends Controller
 {
@@ -289,6 +291,61 @@ class MondayController extends Controller
         return $board;
     } // Function getBoardAllInfo
 
+    function getBoardsInfo($ids)
+    {
+      $boards="";
+      foreach ($ids as $id) {
+         $boards.=$id.",";
+      }
+      $boards=rtrim($boards,",");
+      $monday=New MethodsControllerMD();
+
+      $query="query {
+          boards (ids:[$boards]) {
+            id
+            name
+            description
+            board_kind 
+            creator{
+              account{
+                id
+                name
+              }
+              id
+              name
+              email
+              last_activity 
+              photo_small 
+            }
+            owners {
+              id
+              name
+              email
+              last_activity 
+              photo_small 
+            }
+            subscribers {
+              id
+              name
+              email
+              last_activity 
+              photo_small 
+            }
+            state
+            permissions
+            type
+            updated_at
+            url
+          }
+      }";
+
+      $json=json_decode($monday->apiCallMD($query));
+      if (isset($json->data->boards))
+        return $json->data->boards;     
+      else
+        return false; 
+    }
+
     function drawImage($columnId,$itemId)
     {
       $monday=New MethodsControllerMD();
@@ -300,24 +357,18 @@ class MondayController extends Controller
             }
           }
       }";
-      try{
-        $json=json_decode($monday->apiCallMD($query))->data->items[0]->column_values[0]->value;
-        $assetId=json_decode($json)->files[0]->assetId;
-        $url=MondayController::getImageUrl($assetId)['url'];
-      } catch (\Exception $e){
-        $url='https://integrador.beltforge.com/images/noimage.jpg';
-      }
+
+      $json=json_decode($monday->apiCallMD($query))->data->items[0]->column_values[0]->value;
+      $assetId=json_decode($json)->files[0]->assetId;
+      $url=MondayController::getImageUrl($assetId)['url'];
+
       $img = Http::get($url)->body();
 
-      $finfo = new \finfo(FILEINFO_MIME_TYPE); // Inicializa la clase Fileinfo
-      $mimeType = $finfo->buffer($img); // Determina el tipo MIME desde el contenido binario
-
-
       return Response::make($img, 200, [
-        'Content-Type' => $mimeType, 
+        'Content-Type' => 'image/jpeg', 
         'Cache-Control' => 'no-cache, must-revalidate' 
       ]);
-    
+
     }
 
     function subscribers(){
@@ -325,37 +376,28 @@ class MondayController extends Controller
       return view('MD.admin.susbcribe', compact('users'));
     }
 
-    static function getTokens($board){
-      return MdAdminOwner::select('md_admin_users.token as key')
-      ->where('md_admin_owners.id_board','=',$board)
-      ->join('md_admin_users','md_admin_users.id','=','md_admin_owners.id_user')
-      ->distinct()
-      ->get();
-    }
-
     public function subscribe(Request $request){
       if ($request->board==0)
         $boards=MdAdminMember::select('id_board as id')->where('id_user','=',$request->invitado)->get();
       else
-        $boards=MdAdminMember::select('id_board as id')->where('id_board','=',$request->board)->limit(1)->get();
+        $boards=MdAdminMember::select('id_board as id')->where('id_board','=',$request->board)->get();
+
       $users = MdAdminUser::select('name')->where('id', '=', $request->invitado)->get()->toArray();
       
       if (isset($users[0]['name']))
         echo "<h1>".$users[0]['name']."</h1>";
 
       foreach ($boards as $board) {
-        $tokens=$this->getTokens($board->id);
-
-        foreach ($tokens as  $token){
+        $token=MdAdminOwner::select('md_admin_users.token as key')
+          ->where('md_admin_owners.id_board','=',$board->id)
+          ->join('md_admin_users','md_admin_users.id','=','md_admin_owners.id_user')
+          ->first();
           $json=json_decode($this->addUserBoard($board->id,$request->nuevo,$token->key));
-          if (isset($json->data)){
+          if (isset($json->data))
             echo "user_id:$request->nuevo adicionado exitosamente a board_id:$board->id<br>";
-            break;
-          }
           else
             echo "ERROR: No se pudo invitar user_id:$request->nuevo a board_id:$board->id<br>";
         }
-      }
     }
 
     private function addUserBoard($boardId,$userId,$token,$owner=false){
@@ -374,4 +416,27 @@ class MondayController extends Controller
       return $monday->apiCallMD($query);
     }
 
+    function borreme1($type,$boardId,$ids,$names,$emails){
+      $idsX=explode(",",$ids);
+      $namesX=explode(",",$names);
+      $emailsX=explode(",",$emails);
+      for($i=0;$i<count($idsX);$i++)
+        echo "$type|$boardId|$idsX[$i]|$namesX[$i]|$emailsX[$i]<br>";
+    }
+
+    function borreme(){
+      print_r($this->getBoardsInfo([3432370221,1946158369,85231457]));exit;
+      $file=file('/var/www/apps/integrador/public/content_directory.csv');
+      $i=0;
+      foreach ($file as $line) {
+        if ($i==0)
+          $headers=str_getcsv($line);
+        else{
+          $fields=str_getcsv($line);
+          $this->borreme1('owner',$fields[0],$fields[4],$fields[5],$fields[6]);
+          $this->borreme1('member',$fields[0],$fields[7],$fields[8],$fields[9]);
+        }
+        $i++;
+      }
+    }
 }

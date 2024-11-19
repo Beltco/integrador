@@ -6,7 +6,6 @@ use App\Http\Controllers\MD\CalendarController;
 use App\Http\Controllers\MD\MondayController;
 use App\Http\Controllers\MD\BoardController;
 use App\Http\Controllers\MD\ItemControllerMTK;
-use App\Http\Controllers\MD\DirectoryController;
 use App\Http\Controllers\PD;
 use App\Http\Controllers\BK\BukController;
 use App\Http\Controllers\BK\CreateActiveController;
@@ -40,15 +39,9 @@ Route::group(['prefix'=>'materioteca'],function(){
 Route::group(['prefix'=>'md'],function(){
     Route::controller(MondayController::class)->group(function(){
         Route::get('/test/{boardID}',"getBoardAllInfo");
-        Route::get('/img/{columnId}/{itemId}',"drawImage");
-        Route::get('/subscribe',"subscribers");
-        Route::post('/subscribe',"subscribe");
     });
     Route::controller(BoardController::class)->group(function(){
         Route::get('/boards','getBoards');
-    });
-    Route::controller(DirectoryController::class)->group(function(){
-        Route::get('/properties/{boardId}','boardProperties');
     });
 });
 

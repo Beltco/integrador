@@ -12,12 +12,9 @@ class MethodsControllerMD extends Controller
     private $headers;
     private $boardMateriales;
 
-    function __construct($token=false)
+    function __construct()
     {
-        if ($token)
-          $this->token = $token;
-        else
-          $this->token = config('app.md_token');
+        $this->token = config('app.md_token');
         $this->apiUrl = config('app.md_apiurl');
         $this->headers = ['Content-Type: application/json', 'Authorization: ' . $this->token];
         $this->boardMateriales = 4237501741;

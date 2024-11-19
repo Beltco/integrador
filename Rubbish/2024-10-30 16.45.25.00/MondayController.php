@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers\MD;
 
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Controller;
-use App\Models\MD\Board;
-use Illuminate\Http\Request;
-use App\Models\MD\MdAdminMember;
-use App\Models\MD\MdAdminOwner;
-use App\Models\MD\MdAdminUser;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\MD\MethodsController;
+use App\Models\MD\Column;
+use Exception;
+use stdClass;
 
 class MondayController extends Controller
 {
@@ -193,6 +189,7 @@ class MondayController extends Controller
         $monday=New MethodsControllerMD();
         $limit=200;
         $groups=$this->getGroups($boardId,$groupId);
+
         foreach ($groups as $group) {
             $board['groups'][$group->id]['title']=$group->title;
 
@@ -289,89 +286,47 @@ class MondayController extends Controller
         return $board;
     } // Function getBoardAllInfo
 
-    function drawImage($columnId,$itemId)
+    function getBoardsInfo($ids)
     {
-      $monday=New MethodsControllerMD();
-
-      $query="query {
-          items (ids: [$itemId]) {
-            column_values (ids:".'["'.$columnId.'"]'."){
-                  value 
+      $boards="";
+        foreach ($ids as $id) {
+          $boards.="$id,";
+        }
+        $monday=New MethodsControllerMD();
+        $query="query {
+          boards (ids:[$boards]) {
+            id
+            name
+            description
+            board_kind 
+            creator{
+              account{
+                id
+                name
+              }
+              email
             }
+            owners {
+              account{
+                id
+                name
+              }
+              email
+            }
+            subscribers {
+              account{
+                id
+                name
+              }
+              email
+            }
+            state
+            permissions
+            type
+            updated_at
+            url
           }
-      }";
-      try{
-        $json=json_decode($monday->apiCallMD($query))->data->items[0]->column_values[0]->value;
-        $assetId=json_decode($json)->files[0]->assetId;
-        $url=MondayController::getImageUrl($assetId)['url'];
-      } catch (\Exception $e){
-        $url='https://integrador.beltforge.com/images/noimage.jpg';
-      }
-      $img = Http::get($url)->body();
-
-      $finfo = new \finfo(FILEINFO_MIME_TYPE); // Inicializa la clase Fileinfo
-      $mimeType = $finfo->buffer($img); // Determina el tipo MIME desde el contenido binario
-
-
-      return Response::make($img, 200, [
-        'Content-Type' => $mimeType, 
-        'Cache-Control' => 'no-cache, must-revalidate' 
-      ]);
-    
+        }";
+      return json_decode($this->apiCallMD($query))->data->boards;      
     }
-
-    function subscribers(){
-      $users = MdAdminUser::select('id', 'name')->orderBy('name', 'asc')->get();
-      return view('MD.admin.susbcribe', compact('users'));
-    }
-
-    static function getTokens($board){
-      return MdAdminOwner::select('md_admin_users.token as key')
-      ->where('md_admin_owners.id_board','=',$board)
-      ->join('md_admin_users','md_admin_users.id','=','md_admin_owners.id_user')
-      ->distinct()
-      ->get();
-    }
-
-    public function subscribe(Request $request){
-      if ($request->board==0)
-        $boards=MdAdminMember::select('id_board as id')->where('id_user','=',$request->invitado)->get();
-      else
-        $boards=MdAdminMember::select('id_board as id')->where('id_board','=',$request->board)->limit(1)->get();
-      $users = MdAdminUser::select('name')->where('id', '=', $request->invitado)->get()->toArray();
-      
-      if (isset($users[0]['name']))
-        echo "<h1>".$users[0]['name']."</h1>";
-
-      foreach ($boards as $board) {
-        $tokens=$this->getTokens($board->id);
-
-        foreach ($tokens as  $token){
-          $json=json_decode($this->addUserBoard($board->id,$request->nuevo,$token->key));
-          if (isset($json->data)){
-            echo "user_id:$request->nuevo adicionado exitosamente a board_id:$board->id<br>";
-            break;
-          }
-          else
-            echo "ERROR: No se pudo invitar user_id:$request->nuevo a board_id:$board->id<br>";
-        }
-      }
-    }
-
-    private function addUserBoard($boardId,$userId,$token,$owner=false){
-      $monday=New MethodsControllerMD($token);
-      if ($owner)
-        $kind='owner';
-      else
-        $kind='subscriber';
-
-      $query="mutation {
-        add_users_to_board (board_id: $boardId, user_ids: [$userId], kind: $kind) {
-          id
-        }
-      }";
-
-      return $monday->apiCallMD($query);
-    }
-
 }

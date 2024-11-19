@@ -57,6 +57,7 @@ class BukController extends Controller
             $field['address']=$employee['address'];
             if (BukEmployee::where('id', $employee['id'])->count()==0){
                 Database::insert(New BukEmployee,$field);
+
             }
           }
           catch (\Exception $e) {

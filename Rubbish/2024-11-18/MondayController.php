@@ -338,6 +338,7 @@ class MondayController extends Controller
         $boards=MdAdminMember::select('id_board as id')->where('id_user','=',$request->invitado)->get();
       else
         $boards=MdAdminMember::select('id_board as id')->where('id_board','=',$request->board)->limit(1)->get();
+
       $users = MdAdminUser::select('name')->where('id', '=', $request->invitado)->get()->toArray();
       
       if (isset($users[0]['name']))
