@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\MD;
 
 use App\Http\Controllers\Controller;
+use App\Models\MD\MdAdminUser;
 use Illuminate\Http\Request;
 
 class DirectoryController extends Controller
@@ -68,19 +69,27 @@ class DirectoryController extends Controller
         return false; 
     }
 
+    function drawView($data=false,$new=null)
+    {
+      if ($data)
+        print_r($data);
+    }
+
     function boardProperties($boardId){
       $tokens=MondayController::getTokens($boardId);
+      $new=(count($tokens)==0);
+      if ($new)
+        $tokens=MdAdminUser::select('token as key')->whereRaw('length(token)>0')->get();
 
       foreach ($tokens as $token){
         $json=$this->getBoardsInfo([$boardId],$token->key);
         if ($json)
           break;
       }
-      if (isset($josn[0]))
-//        return($json[0]);
-print_r($json[0]);
+      if (isset($json[0]))
+        $this->drawView($json[0],$new);
       else
-        return false;
+        $this->drawView();
     }
 
 

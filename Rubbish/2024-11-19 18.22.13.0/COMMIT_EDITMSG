@@ -1,0 +1,104 @@
+Commit de rutina
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	modified:   .megaignore
+#	deleted:    Rubbish/2024-09-25/BukController.php
+#	deleted:    Rubbish/2024-09-25/autoload_classmap.php
+#	deleted:    Rubbish/2024-09-25/autoload_static.php
+#	deleted:    Rubbish/2024-09-25/composer.json
+#	deleted:    Rubbish/2024-09-25/composer.lock
+#	deleted:    Rubbish/2024-09-25/index.blade.php
+#	deleted:    Rubbish/2024-09-25/installed.php
+#	deleted:    Rubbish/2024-09-25/packages.php
+#	deleted:    Rubbish/2024-09-25/services.php
+#	new file:   Rubbish/2024-10-30 16.10.35.00/FETCH_HEAD
+#	new file:   Rubbish/2024-10-30 16.11.01.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.13.35.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.13.39.00/FETCH_HEAD
+#	new file:   Rubbish/2024-10-30 16.21.28.00/FETCH_HEAD
+#	new file:   Rubbish/2024-10-30 16.22.29.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.26.32.00/FETCH_HEAD
+#	new file:   Rubbish/2024-10-30 16.28.59.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.31.42.00/FETCH_HEAD
+#	new file:   Rubbish/2024-10-30 16.32.25.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.33.57.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.34.24.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.34.38.00/FETCH_HEAD
+#	new file:   Rubbish/2024-10-30 16.34.41.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.36.01.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.36.32.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.37.46.00/FETCH_HEAD
+#	new file:   Rubbish/2024-10-30 16.40.51.00/FETCH_HEAD
+#	new file:   Rubbish/2024-10-30 16.40.56.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.43.09.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.43.52.00/FETCH_HEAD
+#	new file:   Rubbish/2024-10-30 16.45.10.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.45.25.00/MondayController.php
+#	new file:   Rubbish/2024-10-30 16.46.06.00/BoardController.php
+#	new file:   Rubbish/2024-10-30 16.46.51.00/FETCH_HEAD
+#	new file:   Rubbish/2024-10-30 16.47.22.00/MondayController.php
+#	new file:   Rubbish/2024-10-30/BoardController.php
+#	new file:   Rubbish/2024-10-30/BukController.php
+#	new file:   Rubbish/2024-10-30/FETCH_HEAD
+#	new file:   Rubbish/2024-10-30/MondayController.php
+#	renamed:    Rubbish/2024-09-25/web.php -> Rubbish/2024-10-30/web.php
+#	new file:   Rubbish/2024-11-02/BoardController.php
+#	new file:   Rubbish/2024-11-02/FETCH_HEAD
+#	new file:   Rubbish/2024-11-02/MondayController.php
+#	new file:   Rubbish/2024-11-14/FETCH_HEAD
+#	new file:   Rubbish/2024-11-14/MethodsControllerMD.php
+#	new file:   Rubbish/2024-11-14/MondayController.php
+#	new file:   Rubbish/2024-11-14/web.php
+#	new file:   Rubbish/2024-11-16/FETCH_HEAD
+#	new file:   Rubbish/2024-11-16/MondayController.php
+#	new file:   Rubbish/2024-11-16/web.php
+#	new file:   Rubbish/2024-11-18/2024-11-18 18.30.17.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 18.33.19.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 18.36.22.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 18.39.25.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 18.42.27.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 18.45.29.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 18.48.32.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 18.51.34.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 18.54.40.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 18.57.42.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.03.29.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.03.49.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.06.47.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.09.48.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.12.49.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.15.48.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.18.47.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.21.48.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.24.49.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.27.50.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.30.48.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.33.48.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.36.58.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.39.59.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.42.55.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/2024-11-18 19.45.57.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/FETCH_HEAD
+#	new file:   Rubbish/2024-11-18/MondayController.php
+#	new file:   Rubbish/2024-11-19/2024-11-19 18.04.40.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-19/2024-11-19 18.07.44.0/FETCH_HEAD
+#	new file:   Rubbish/2024-11-19/FETCH_HEAD
+#	modified:   app/Http/Controllers/BK/BukController.php
+#	new file:   app/Http/Controllers/MD/BoardController.php
+#	new file:   app/Http/Controllers/MD/DirectoryController.php
+#	modified:   app/Http/Controllers/MD/MethodsControllerMD.php
+#	modified:   app/Http/Controllers/MD/MondayController.php
+#	new file:   app/Models/MD/MdAdminMember.php
+#	new file:   app/Models/MD/MdAdminOwner.php
+#	new file:   app/Models/MD/MdAdminUser.php
+#	new file:   app/Models/MD/MdBoardDetail.php
+#	modified:   composer.lock
+#	modified:   desktop.ini
+#	new file:   resources/views/MD/admin/susbcribe.blade.php
+#	modified:   routes/web.php
+#

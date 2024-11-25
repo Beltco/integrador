@@ -1,0 +1,27 @@
+0000000000000000000000000000000000000000 56f5057ba789a085315f59b2d1104c732a8ce51a Nelson R. Gomez Martinez <Nelson@beltco.com> 1710599531 -0500	commit (initial): Integrador Belt
+56f5057ba789a085315f59b2d1104c732a8ce51a 0000000000000000000000000000000000000000 Nelson R. Gomez Martinez <Nelson@beltco.com> 1710599563 -0500	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 56f5057ba789a085315f59b2d1104c732a8ce51a Nelson R. Gomez Martinez <Nelson@beltco.com> 1710599563 -0500	Branch: renamed refs/heads/master to refs/heads/main
+56f5057ba789a085315f59b2d1104c732a8ce51a c97c5277aa0dec2f630ce2a5d5ad0e5460788fcb Belt DEV <it@beltcolombia.com> 1710856650 -0500	commit: Changes to be committed:
+c97c5277aa0dec2f630ce2a5d5ad0e5460788fcb d11052f2bffdf6c66c7566e6281d47ebf7a15d5c Belt DEV <it@beltcolombia.com> 1712958246 -0500	commit: Commit con el módulo de lectura de Pipedrive terminado
+d11052f2bffdf6c66c7566e6281d47ebf7a15d5c a453f97854efe75a17e474c30d870f00b6a7a432 Belt DEV <it@beltcolombia.com> 1712958307 -0500	commit: Commit versión getdata from Pipedrive
+a453f97854efe75a17e474c30d870f00b6a7a432 b09dd55920e6824f0ae1bbf8eeb03620fdcbe5e7 Belt DEV <it@beltcolombia.com> 1713987461 -0500	commit: Commit de rutina
+b09dd55920e6824f0ae1bbf8eeb03620fdcbe5e7 2c1bf91ce7eb9c7649bc3fd9758b7da5fcf98a21 Belt DEV <it@beltcolombia.com> 1714482007 -0500	commit: Commit de rutina
+2c1bf91ce7eb9c7649bc3fd9758b7da5fcf98a21 f36f786ea1d7e60839d2e673b820b576649885de Belt DEV <it@beltcolombia.com> 1715012385 -0500	commit: Commit de rutina
+f36f786ea1d7e60839d2e673b820b576649885de cbd11f19218f8d8ad971027468f477d90320029a Belt CO <it@beltcolombia.com> 1716235206 -0500	commit: Commit de rutina
+cbd11f19218f8d8ad971027468f477d90320029a d88be5dcc06845daea7d0cc7a6d8e295ad27d9a8 Belt CO <it@beltcolombia.com> 1716824457 -0500	commit: Commit de rutina
+d88be5dcc06845daea7d0cc7a6d8e295ad27d9a8 227782eece3ab3d177e257f12d965b672ea02230 Belt CO <it@beltcolombia.com> 1717796943 -0500	commit: Commit de rutina
+227782eece3ab3d177e257f12d965b672ea02230 387e47b94f9848e3cdb47f11aecc93190813a0c1 Belt CO <it@beltcolombia.com> 1718111367 -0500	commit: Commit de rutina
+387e47b94f9848e3cdb47f11aecc93190813a0c1 cdc2ab0499c6726ce049cde0f9ed011a633b0147 Belt CO <it@beltcolombia.com> 1718218915 -0500	commit: Commit de rutina
+cdc2ab0499c6726ce049cde0f9ed011a633b0147 ffe56cda0547c54ce8a4b467ca998480ff9414ca Belt CO <it@beltcolombia.com> 1718402054 -0500	commit: Commit de rutina (MD, PD, MT)
+ffe56cda0547c54ce8a4b467ca998480ff9414ca cabac714d423215fd7ceb43206598a10703b75f7 Belt CO <it@beltcolombia.com> 1718890451 -0500	commit: Commit programado
+cabac714d423215fd7ceb43206598a10703b75f7 fbe6168174ebaf0a10c62ec0ab3c7ca3ba62e575 Belt CO <it@beltcolombia.com> 1720018309 -0500	commit: commit programado ... 3/jul/24
+fbe6168174ebaf0a10c62ec0ab3c7ca3ba62e575 970e577261ca4a8e9d6716a5cac957a5f0ee78a8 Belt CO <it@beltcolombia.com> 1721403268 -0500	commit: Commit de rutina...
+970e577261ca4a8e9d6716a5cac957a5f0ee78a8 4dc3a21774133960c2326f9dc687717b8b262fc2 Belt CO <it@beltcolombia.com> 1721912440 -0500	commit: Commit de rutina
+4dc3a21774133960c2326f9dc687717b8b262fc2 f55bfb8293bf3ffd1dcc9d5d3ccd694ab414c7ad Belt CO <it@beltcolombia.com> 1722957134 -0500	commit: Commit de rutina
+f55bfb8293bf3ffd1dcc9d5d3ccd694ab414c7ad facfdc3ef40aa51946c91866f645badd822fd9cd Belt CO <it@beltcolombia.com> 1723066397 -0500	commit: commit de rutina
+facfdc3ef40aa51946c91866f645badd822fd9cd 25d8d7feef58caaf64d912adeca057322ece84b9 Belt CO <it@beltcolombia.com> 1725546851 -0500	commit: commit periódico
+25d8d7feef58caaf64d912adeca057322ece84b9 5909c48c9be037f76aa7cfa360d47be7cac78615 Belt CO <it@beltcolombia.com> 1726836677 -0500	commit: Commit de rutina
+5909c48c9be037f76aa7cfa360d47be7cac78615 7c99a44106a86185ba8a4974109bb2f88e41f4f9 Belt CO <it@beltcolombia.com> 1728422804 -0500	commit: Commit de rutina
+7c99a44106a86185ba8a4974109bb2f88e41f4f9 42079bb4f63acb7dbe02c477ee55d3707eb99cba Belt CO <it@beltcolombia.com> 1728681187 -0500	commit: commit de rutina
+42079bb4f63acb7dbe02c477ee55d3707eb99cba 39d205f0b8a776a87a0b59d18343ab3ede3b55a2 Belt CO <it@beltcolombia.com> 1729089066 -0500	commit: commit de rutina
+39d205f0b8a776a87a0b59d18343ab3ede3b55a2 e38827e25b56678609a2d2cb4f7e76ad5063c9de NelsonRGomez <nrgomezma@gmail.com> 1732057686 -0500	commit: Commit de rutina
